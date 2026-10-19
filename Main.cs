@@ -31,12 +31,12 @@ class Main : BasePlugin
     }
 }
 
-class Logo
+public class Stamp
 {
     [HarmonyPatch(typeof(ModManager),nameof(ModManager.LateUpdate))]
-    static void Prefix()
+    public static void Postfix(ModManager __instance)
     {
-        ModManager.Instance.ShowModStamp();
+        __instance.ShowModStamp();
     }
 
 }
