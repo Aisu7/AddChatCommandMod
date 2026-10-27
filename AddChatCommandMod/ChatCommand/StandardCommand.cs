@@ -14,9 +14,16 @@ public abstract class Template
     /// </summary>
     
     // {get}
-    public abstract string ShortName {get; } //get=このクラスの中では読み取り専用の変数。別クラスで宣言(set)してもらう。
-    public abstract string FullName {get;}
-    public abstract string FullName_jp {get;}
+    public abstract string ShortcmdName {get;} //get=このクラスの中では読み取り専用の変数。別クラスで宣言(set)してもらう。
+    public abstract string FullcmdName {get;}
+    public abstract string FullcmdName_jp {get;}
+    
+    public abstract string ShortcmdtypeName {get;}
+    public abstract string FullcmdtypeName {get;}
+    public abstract string FullcmdtypeNamejp {get;}
+
+
+        
     public virtual string SetText {get; protected set;} ="";
     public virtual bool IsActive {get; protected set;} = true; //書き忘れるなよ
 
