@@ -6,7 +6,7 @@ public class ChatCommandClip
 {
     public bool EnabledChatComd {get; protected set;} = true;
 
-    public readonly MessageCommand messageCommand = new messageCommand();
+    public readonly MessageCommand messageCommand = new MessageCommand();
     
     
 }
