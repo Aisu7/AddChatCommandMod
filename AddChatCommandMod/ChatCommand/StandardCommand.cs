@@ -17,12 +17,15 @@ public abstract class Template
     // 
     public abstract string ShortcmdName {get;} //get=このクラスの中では読み取り専用の変数。別クラスで宣言(set)してもらう。
     public abstract string FullcmdName {get;}
-    public abstract string FullcmdName_jp {get;}
     
     public abstract string ShortcmdtypeName {get;}
     public abstract string FullcmdtypeName {get;}
-    public abstract string FullcmdtypeName_jp {get;}
 
+    public enum cmdCUser
+    {
+        Host,
+        AllClient,      
+    }
 
         
     public virtual string SetText {get; protected set;} ="";
