@@ -1,18 +1,30 @@
 
-namespace AddXhatCommandMod;
+namespace AddChatCommandMod;
 
 
     // public virtual string SetText {get; protected set;} ="";
 　　　// これをSetの方に配置。nullかどうかも見極めたいので、初期の代入はSetに回す
 public class typeSend
 {
-
-  public abstract SendChattype
-  
-    public void IOnlySend()
+    //HostOnlyとAllClient両方ともチャット検知の時にしても良いが、return falseを使う処理があるため、早期に分岐して、別のvoidにする必要がありそう。
+    public void Send(enum cmdtype)
     {
-        if (IsActive)
+        if (IsEnabled)
         {
+            if (cmdtype == HostOnly)
+            {
+
+                
+            }
+            if (cmdtype == AllClient)
+            {
+
+
+                
+            }
+        }
+        
+)
             if (SetText == "")
             {
                 // Rpcでローカルチャットを返す処理
@@ -30,6 +42,7 @@ public class typeSend
         {
             // Rpcでローカルチャットを返す処理
             // ("そのコマンドは現在無効化されています。");
+        }
         }
     }
   )
