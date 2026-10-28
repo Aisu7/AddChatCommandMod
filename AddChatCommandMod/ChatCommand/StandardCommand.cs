@@ -21,6 +21,8 @@ public abstract class Template
     public abstract string ShortcmdtypeName {get;}
     public abstract string FullcmdtypeName {get;}
 
+    public virtual bool isEnabled {get;} = true;
+
     public enum cmdCUser
     {
         Host,
@@ -28,7 +30,7 @@ public abstract class Template
     }
 
         
-    public virtual string SetText {get; protected set;} ="";
+    /*public virtual string SetText {get; protected set;} ="";
     public virtual bool IsActive {get; protected set;} = true; //書き忘れるなよ
 
     public virtual void IOnlySend()
@@ -106,4 +108,5 @@ public abstract class Template
         }
     }
     public virtual void Other(){}
+}*/
 }
