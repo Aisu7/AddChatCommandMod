@@ -14,14 +14,14 @@ public abstract class Template
     /// </summary>
     // {get}
 
-    // 
-    public abstract string ShortcmdName {get;} //get=このクラスの中では読み取り専用の変数。別クラスで宣言(set)してもらう。
-    public abstract string FullcmdName {get;}
     
-    public abstract string ShortcmdtypeName {get;}
-    public abstract string FullcmdtypeName {get;}
+    public abstract string ShortCmdName {get;} //get=このクラスの中では読み取り専用の変数。別クラスで宣言(set)してもらう。
+    public abstract string FullCmdName {get;}
+    
+    public abstract string ShortCmdTypeName {get;}
+    public abstract string FullCmdTypeName {get;}
 
-    public virtual bool isEnabled {get;} = true;
+    public virtual bool IsEnabled {get; protected set;} = true;
 
     public enum cmdCUser
     {
