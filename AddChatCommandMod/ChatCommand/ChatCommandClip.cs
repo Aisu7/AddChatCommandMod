@@ -4,5 +4,5 @@ namespace AddChatCommandMod;
 
 public class ChatCommandClip
 {
-    
+    public static bool EnabledChatComd = true;
 }
