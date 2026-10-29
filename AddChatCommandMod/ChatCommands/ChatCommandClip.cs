@@ -4,7 +4,7 @@ namespace AddChatCommandMod;
 
 public class ChatCommandClip
 {
-    public bool EnabledChatComd {get; protected set;} = true;
+    public bool EnabledChatCmd {get; protected set;} = true;
 
     public readonly MessageCommand messageCommand = new();
     public readonly JoinCommand joinCommand = new();
