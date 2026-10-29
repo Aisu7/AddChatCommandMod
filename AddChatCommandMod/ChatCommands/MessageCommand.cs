@@ -6,5 +6,9 @@ namespace AddChatCommandMod;
 public class MessageCommand
 {
     public override string ShortCmdName => "m";
-    public override string FullCmdName => "message"
+    public override string FullCmdName => "message";
+
+    public Send Send {get;} = new();
+    public Set Set {get;} = new();
+    public State State 
 }
