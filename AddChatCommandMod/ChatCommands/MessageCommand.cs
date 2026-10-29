@@ -8,9 +8,8 @@ public class MessageCommand
     public override string ShortCmdName => "m";
     public override string FullCmdName => "message";
 
-    public Send Send {get;} = new();
-    public Set Set {get;} = new();
-    public State State {get:} = new();
-    public OnorOff OnorOff {get;} = new();
+    public TypeSendandSet typeSendandSet {get;} = new();
+    public TypeState typeState {get:} = new();
+    public TypeOnandOff typeOnandOdf {get;} = new();
     
 }
