@@ -10,5 +10,7 @@ public class MessageCommand
 
     public Send Send {get;} = new();
     public Set Set {get;} = new();
-    public State State 
+    public State State {get:} = new();
+    public OnorOff OnorOff {get;} = new();
+    
 }
