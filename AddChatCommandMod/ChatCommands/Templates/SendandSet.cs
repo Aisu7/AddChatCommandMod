@@ -4,7 +4,7 @@ namespace AddChatCommandMod;
 
     // public virtual string SetText {get; protected set;} ="";
 　　　// これをSetの方に配置。nullかどうかも見極めたいので、初期の代入はSetに回す
-public class TypeSendandTypeSet
+public class TypeSendandSet
 {
     //HostOnlyとAllClient両方ともチャット検知の時にしても良いが、return falseを使う処理があるため、早期に分岐して、別のvoidにする必要がありそう。
     public void Send(enum cmdtype)
