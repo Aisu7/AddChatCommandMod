@@ -6,7 +6,6 @@ public enum cmdtype
     Other,
     Send,
     Set,
-    On,
-    Off,
+    OnorOff,
     State,
 }
