@@ -4,16 +4,35 @@ using InnerNet;
 
 namespace AddChatCommandMod;
 
-public static class a
-{
 
     [HarmonyPatch(typeof(ChatController),nameof(ChatController.SendChat))]
-    public static void Prifix(ChatController __instance)
+    public class SendChatPatch
     {
-        if (!AmongUsClient.Instance.AmHost)
-            return;
+        
+    
+        public static bool Prefix(ChatController __instance)
+        {
+        
+            if (AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Joined)
+                return true;
+        
+            if (!AmongUsClient.Instance.AmHost)
+                return true;
+
+            string ChatText = __instance.freeChatField.textArea.text;
+            
+
+        
 
         
         
+    
+        }
+
+    [HarmonyPatch(typeof(ChatController),nameof(ChatController.AddChat))]
+    public class AddChatPatch
+    {
+        public static bool Prefix（ChatController __instance,PlayerController __instance）
+            
     }
 }
