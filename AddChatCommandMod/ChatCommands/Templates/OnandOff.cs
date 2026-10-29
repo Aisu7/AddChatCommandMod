@@ -1,7 +1,7 @@
 
 namespace AddChatCommandMod;
 
-public class OnandOffCommand
+public class TypeOnandOff
 {
 
 }
