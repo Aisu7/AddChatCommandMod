@@ -6,7 +6,10 @@ public class ChatCommandClip
 {
     public bool EnabledChatComd {get; protected set;} = true;
 
-    public readonly MessageCommand messageCommand = new MessageCommand();
-    public readonly JoinCommand joinCommand = new JoinCommand();
-    public readonly AnounceCommand anouncecommand = new AnounceCommand();
+    public readonly MessageCommand messageCommand = new();
+    public readonly JoinCommand joinCommand = new();
+    public readonly AnounceCommand anounceCommand = new();
+    public readonly HelpCommand helpCommand = new();
+    public readonly ServeyCommand serveyCommand = new();
+    public readonly KillCommand killCommand = new();
 }
