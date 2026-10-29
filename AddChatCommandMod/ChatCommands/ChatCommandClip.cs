@@ -9,5 +9,4 @@ public class ChatCommandClip
     public readonly MessageCommand messageCommand = new MessageCommand();
     public readonly JoinCommand joinCommand = new JoinCommand();
     public readonly AnounceCommand anouncecommand = new AnounceCommand();
-    
 }
