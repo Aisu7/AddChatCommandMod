@@ -23,12 +23,6 @@ public abstract class Template
 
     public virtual bool IsEnabled {get; protected set;} = true;
 
-    public enum cmdCUser
-    {
-        Host,
-        AllClient,      
-    }
-
         
     /*public virtual string SetText {get; protected set;} ="";
     public virtual bool IsActive {get; protected set;} = true; //書き忘れるなよ
