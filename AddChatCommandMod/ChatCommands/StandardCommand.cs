@@ -2,7 +2,7 @@
 
 namespace AddChatCommandMod;
 
-public abstract class Template
+public abstract class StanderdCommand
 {
     /// <summary>
     /// abstract・・・子クラスで変数を宣言しないとエラーになってくれる
@@ -17,15 +17,15 @@ public abstract class Template
     
     public abstract string ShortCmdName {get;} //get=このクラスの中では読み取り専用の変数。別クラスで宣言(set)してもらう。
     public abstract string FullCmdName {get;}
+
     
-    public abstract string ShortCmdTypeName {get;}
-    public abstract string FullCmdTypeName {get;}
+    // public abstract string ShortCmdTypeName {get;}
+    // public abstract string FullCmdTypeName {get;}
 
     public virtual bool IsEnabled {get; protected set;} = true;
 
         
-    /*public virtual string SetText {get; protected set;} ="";
-    public virtual bool IsActive {get; protected set;} = true; //書き忘れるなよ
+    /*
 
     public virtual void IOnlySend()
     {

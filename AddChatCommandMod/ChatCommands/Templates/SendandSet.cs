@@ -5,22 +5,29 @@ namespace AddChatCommandMod;
 　　　// これをSetの方に配置。nullかどうかも見極めたいので、初期の代入はSetに回す
 public abstract class TypeSendandSet
 {
-    public abstract CmdType CmdType {get; protected set;}
+    public abstract SendCmdType sendCmdType {get; protected set;}
+
+    public enum  SendCmdType
+    {
+        HostOnly,
+        AllClientSend,
+    }
+
     public virtual string SetText {get; protected set;} = "";
 
 
     
     //HostOnlyとAllClient両方ともチャット検知の時にしても良いが、return falseを使う処理があるため、早期に分岐して、別のvoidにする必要がありそう。
-    public virtual void Send(enum cmdtype)
+    public virtual void Send(bool IsEnabled)
     {
         if (IsEnabled)
         {
-            if (cmdtype == HostOnly)
+            if (sendCmdType == SendCmdType.HostOnly)
             {
 
                 
             }
-            if (cmdtype == AllClient)
+            if (sendCmdType == SendCmdType.AllClientSend)
             {
 
 
@@ -28,7 +35,7 @@ public abstract class TypeSendandSet
             }
         }
         
-)
+    
             if (SetText == "")
             {
                 // Rpcでローカルチャットを返す処理
@@ -41,13 +48,11 @@ public abstract class TypeSendandSet
                 // Rpcでグローバルチャットを返す処理
                 // (SetText);
             }
-        }
+    }
         else
         {
             // Rpcでローカルチャットを返す処理
             // ("そのコマンドは現在無効化されています。");
         }
-        }
-    }
-  )
+}
   
