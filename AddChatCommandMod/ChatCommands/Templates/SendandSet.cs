@@ -5,9 +5,8 @@ namespace AddChatCommandMod;
 　　　// これをSetの方に配置。nullかどうかも見極めたいので、初期の代入はSetに回す
 public abstract class TypeSendandSet
 {
-    public abstract Enum...
-        
-    public virtual string SetText {get; protected set;} ="";
+    public abstract CmdType CmdType {get; protected set;}
+    public virtual string SetText {get; protected set;} = "";
 
 
     
