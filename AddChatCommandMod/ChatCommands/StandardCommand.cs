@@ -2,7 +2,7 @@
 
 namespace AddChatCommandMod;
 
-public abstract class Template
+public abstract class StanderdCommand
 {
     /// <summary>
     /// abstract・・・子クラスで変数を宣言しないとエラーになってくれる

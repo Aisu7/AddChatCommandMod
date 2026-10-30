@@ -1,7 +1,7 @@
 
 namespace AddChatCommandMod;
 
-public enum cmdtype
+public enum CmdType
 {
     Other,
     Send,
