@@ -14,7 +14,7 @@ public class MessageCommand : StanderdCommand
     }
 
     public StanderdCommand standerdCommand {get;set;}
-    public TypeSendandSet typeSendandSet {get;} = new();
+    public TypeSendandSet typeSendandSet {get;set;}
     public TypeState typeState {get;} = new();
     public TypeOnandOff typeOnandOdf {get;} = new();
     

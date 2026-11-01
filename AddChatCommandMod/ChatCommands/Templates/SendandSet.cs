@@ -24,7 +24,7 @@ public abstract class TypeSendandSet
         {
             if (sendCmdType == SendCmdType.HostOnly)
             {
-
+                
                 
             }
             if (sendCmdType == SendCmdType.AllClientSend)
