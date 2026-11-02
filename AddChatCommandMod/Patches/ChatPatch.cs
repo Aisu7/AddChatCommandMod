@@ -20,19 +20,21 @@ namespace AddChatCommandMod;
                 return true;
 
             string ChatText = __instance.freeChatField.textArea.text;
-            
 
+            return true;
         
 
         
         
     
         }
-
-    [HarmonyPatch(typeof(ChatController),nameof(ChatController.AddChat))]
-    public class AddChatPatch
-    {
-        public static bool Prefix（ChatController __instance,PlayerController __instance）
-            
     }
-}
+
+/*[HarmonyPatch(typeof(ChatController), nameof(ChatController.AddChat))]
+public class AddChatPatch
+{
+    public static void Prefix(ChatController __instance)
+    {
+
+    }
+}*/
