@@ -3,3 +3,4 @@ obj/
 /Dependencies/
 *.zip
 .devcontainer/
+AddChatCommandMod/.devcontainer/.devcontainer.json
