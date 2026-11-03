@@ -11,6 +11,14 @@ public static class ModTranslation
     };
     public static string GetString(string key)
     {
-        return Translations[key];
+        if (Translations.TryGetValue(key,out string? value))
+        {
+            return value;
+        }
+        else
+        {
+            Main.Log.LogWarning($"[{key}]の翻訳が未設定");
+            return key;
+        }
     }
 }
