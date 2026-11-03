@@ -1,4 +1,4 @@
-
+/*
 namespace AddChatCommandMod;
 
 class LoggerConfiguration
@@ -9,10 +9,10 @@ class LoggerConfiguration
 public static class Log
 {
     //ファイルの指定
-    public static void log(string classname,string logtext)
+    public static void logInfo(string classname,string logtext)
     {
         
     }
 
 
-}
+}*/

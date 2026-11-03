@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "ms-ceintl.vscode-language-pack-ja",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "ms-dotnettools.csharp",
+        "ms-azuretools.vscode-containers",
+        "davidanson.vscode-markdownlint",
+        "ms-dotnettools.csdevkit"
+    ]
+}

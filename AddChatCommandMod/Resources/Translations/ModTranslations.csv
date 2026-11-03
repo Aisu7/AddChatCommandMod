@@ -1,0 +1,17 @@
+# ここでは'#'を文頭に使用すると、コメントアウト可能
+# Key,Japanese,English
+AddChatCommanderMod,AddChatCommanderMod,AddChatCommanderMod
+WelcometoAddChatCommanderMod,AddChatCommanderModへようこそ！,Welcome to AddChatCommanderMod!
+
+#コマンド (Command)
+CommandName.Message,固定メッセージ,Message Command
+CommandName.JoinMessage,参加時メッセージ,JoinMessage
+CommandName.Anounce,アナウンス,Announce
+CommandName.Kill,キルコマンド,Kill Command
+CommandName.Help,ヘルプコマンド,Help Command
+
+Command.Disabled,このコマンドは無効化されています。,This command is disabled.
+
+#ガイド (Guide)
+Guide.Title,AddChatCommandMod ガイド,AddChatCommanderMod Guide
+
