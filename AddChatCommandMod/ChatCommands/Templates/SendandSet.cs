@@ -49,10 +49,10 @@ public abstract class TypeSendandSet
                 // (SetText);
             }
     }
-        else
-        {
+        //else
+        //{
             // Rpcでローカルチャットを返す処理
             // ("そのコマンドは現在無効化されています。");
-        }
+        //}
 }
   
