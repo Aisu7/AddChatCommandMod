@@ -10,14 +10,18 @@ public static class ModTranslations
 
     public static void GetCurrentLanguage(LanguageSettingsData __instance)
     {
-        byte Translationsindex;
+        byte Translationsindex = 2;
         switch (__instance.CurrentLanguage)
         {
-            case SupportedLangs.Japanese
-            : byte
-            SetTranslation()
+            case SupportedLangs.Japanese :
+                Translationsindex = 1;
+                SetTranslations(Translationsindex);
+                break;
 
-            break;
+            case SupportedLangs.English :
+                Translationsindex = 2;
+                SetTranslations(Translationsindex);
+                break;
         }
     }
 
@@ -44,7 +48,7 @@ public static class ModTranslations
                     continue;
                 }
                 
-                ModTranslations.SetTranslation(row[0],row[1]);
+                ModTranslations.SetTranslation(row[0],row[index]);
 
             }
         }

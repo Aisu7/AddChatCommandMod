@@ -50,14 +50,9 @@ public class RunStartUpPatch
 public class OnChangedEvent
 {
     public static void Postfix(LanguageSettingsData __instance) 
-    {
+    {        
         //コールチンで待つ
-        switch (__instance.CurrentLanguage)
-        {
-            case SupportedLangs.Japanese :
-                return 
-            break;
-        }
+
     }
 }
 
