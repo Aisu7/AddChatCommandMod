@@ -13,7 +13,7 @@ class Main : BasePlugin
     const string ModName = "AddChatCommandMod";
     const string Version = "1.0.0";
 
-    public static ManualLogSource Log; //これようわからん
+    public static ManualLogSource Log;
     
     public override void Load()
     {

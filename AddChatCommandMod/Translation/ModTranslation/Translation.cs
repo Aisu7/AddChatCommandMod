@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AmongUs.Data.Settings;
 using Microsoft.VisualBasic.FileIO;
 
 namespace AddChatCommandMod;
@@ -7,7 +8,20 @@ public static class ModTranslations
 {
     static readonly Dictionary<string,string> Translations = new();
 
-    public static void LoadTranslations()
+    public static void GetCurrentLanguage(LanguageSettingsData __instance)
+    {
+        byte Translationsindex;
+        switch (__instance.CurrentLanguage)
+        {
+            case SupportedLangs.Japanese
+            : byte
+            SetTranslation()
+
+            break;
+        }
+    }
+
+    static void SetTranslations(byte index)
     {
         using (TextFieldParser parser = new(@"AddChatCommandMod/Resources/Translations/ModTranslations.csv"))
         {
