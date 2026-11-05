@@ -3,9 +3,10 @@ namespace AddChatCommandMod;
 
 public enum CmdType
 {
-    Other,
+    None,
     Send,
     Set,
     OnorOff,
     State,
+    Other,
 }

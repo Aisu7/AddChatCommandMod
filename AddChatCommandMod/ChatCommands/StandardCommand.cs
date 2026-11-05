@@ -22,7 +22,7 @@ public abstract class StanderdCommand
     // public abstract string ShortCmdTypeName {get;}
     // public abstract string FullCmdTypeName {get;}
 
-    public virtual bool IsEnabled {get; protected set;} = true;
+    public virtual bool IsEnabled {get;} = true;
 
         
     /*

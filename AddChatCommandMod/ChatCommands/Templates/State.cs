@@ -2,7 +2,7 @@
 
 namespace AddChatCommandMod;
 
-public class TypeState
+public abstract class TypeState
 {
 
 }

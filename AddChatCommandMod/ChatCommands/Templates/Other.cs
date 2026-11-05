@@ -2,7 +2,7 @@
 
 namespace AddChatCommandMod;
 
-public class TypeOther
+public abstract class TypeOther
 {
 
 }
