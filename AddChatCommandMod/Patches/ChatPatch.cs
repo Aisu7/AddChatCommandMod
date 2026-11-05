@@ -28,32 +28,8 @@ public class SendChatPatch
 [HarmonyPatch(typeof(ChatController),nameof(ChatController.AddChat))]
 public class AddChatPatch
 {
-    public static void Prefix(ChatController __instance, PlayerControl sourceplayer)
+    public static void Postfix(ChatController __instance, PlayerControl sourceplayer)
     {
         
     }
 }
-
-[HarmonyPatch(typeof(MainMenuManager),nameof(MainMenuManager.RunStartUp))]
-public class RunStartUpPatch
-{
-    public static void Postfix(LanguageSettingsData languageSettingsData)
-    {
-        //コールチンで待つ
-
-        //languageSettingsData.add_OnLanguageChanged
-        //ModTranslations.LoadTranslations();
-    }
-}
-
-[HarmonyPatch(typeof(LanguageSettingsData),nameof(LanguageSettingsData.add_OnLanguageChanged))]
-public class OnChangedEvent
-{
-    public static void Postfix(LanguageSettingsData __instance) 
-    {        
-        //コールチンで待つ
-
-    }
-}
-
-

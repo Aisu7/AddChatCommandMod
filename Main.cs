@@ -2,7 +2,6 @@
 using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
 using BepInEx.Logging;
-using System.Linq;
 
 namespace AddChatCommandMod;
 
@@ -12,15 +11,13 @@ class Main : BasePlugin
     const string GUID = "com.aisu7.acm";
     const string ModName = "AddChatCommandMod";
     const string Version = "1.0.0";
-
-    public static ManualLogSource Log;
     
     public override void Load()
     {
         string dynamicName = this.GetType().Name;
         var harmony = new Harmony(GUID);
         
-        Log = base.Log; //これもよくわからん
+        Logger.Log = base.Log; //これもよくわからん
 
         harmony.PatchAll();
 

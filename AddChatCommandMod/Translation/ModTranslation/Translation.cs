@@ -29,6 +29,15 @@ public static class ModTranslations
     {
         using (TextFieldParser parser = new(@"AddChatCommandMod/Resources/Translations/ModTranslations.csv"))
         {
+            // 毎回初期化
+            Translations.Clear();
+
+            if (parser == null)
+            {
+                Logger.Log.LogError("ModTranslations.csvが読み込めていません。翻訳処理を中断します");
+                return;
+            }
+
             parser.SetDelimiters(",");
             while (!parser.EndOfData)
             {
@@ -44,7 +53,7 @@ public static class ModTranslations
                 
                 if(row.Length < 3)
                 {
-                    Main.Log.LogWarning($"{row[0]}の翻訳が不足しています");
+                    Logger.Log.LogWarning($"{row[0]}の翻訳が不足しています");
                     continue;
                 }
                 
@@ -64,12 +73,10 @@ public static class ModTranslations
     public static string GetString(string key)
     {
         if (Translations.TryGetValue(key,out string? value))
-        {
             return value;
-        }
         else
         {
-            Main.Log.LogWarning($"[{key}]の翻訳が未設定");
+            Logger.Log.LogWarning($"[{key}]の翻訳が未設定");
             return key;
         }
     }

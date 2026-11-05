@@ -1,12 +1,14 @@
-using HarmonyLib;
+/*using HarmonyLib;
 using Hazel;
 using InnerNet;
 using InnerNetClient;
 
 namespace AddChatCommandMod;
 
-[HarmonyPatch(typeof(Player),nameof(PlayerControl.))]
+[HarmonyPatch(typeof(),nameof(PlayerControl.))]
 public class TestClass
 {
        
 }
+
+*/

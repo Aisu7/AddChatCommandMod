@@ -1,18 +1,10 @@
-/*
+using BepInEx.Logging;
+using BepInEx.Unity.IL2CPP;
+
 namespace AddChatCommandMod;
 
-class LoggerConfiguration
+public static class Logger
 {
+    public static ManualLogSource Log = new("Logger");
     
 }
-
-public static class Log
-{
-    //ファイルの指定
-    public static void logInfo(string classname,string logtext)
-    {
-        
-    }
-
-
-}*/
