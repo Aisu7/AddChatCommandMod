@@ -14,11 +14,25 @@ class Main : BasePlugin
     
     public override void Load()
     {
+        foreach (string name in GetType().Assembly.GetManifestResourceNames())
+        {
+            if (name.EndsWith("ModTranslations.csv"))
+            {
+                using Stream? stream = GetType().Assembly.GetManifestResourceStream(name);
+
+                if (stream != null)
+                    ModTranslations.GetFilePath(stream);
+                else
+                    Log.LogError("ModTranslations.csvを取得できませんでした");
+
+                break;
+            }
+        }
+
         string dynamicName = this.GetType().Name;
         var harmony = new Harmony(GUID);
-        
-        Logger.Log = base.Log; //これもよくわからん
-
+        Logger.Log = base.Log;
+ 
         harmony.PatchAll();
 
         int patchedCount = harmony.GetPatchedMethods().Count();
@@ -32,9 +46,9 @@ class Main : BasePlugin
     }
 }
 
+[HarmonyPatch(typeof(ModManager),nameof(ModManager.LateUpdate))]
 public class Stamp
 {
-    [HarmonyPatch(typeof(ModManager),nameof(ModManager.LateUpdate))]
     public static void Postfix(ModManager __instance)
     {
         __instance.ShowModStamp();
