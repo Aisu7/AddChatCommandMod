@@ -1,6 +1,5 @@
-bin/
-obj/
-/Dependencies/
+**/bin/
+**/obj/
+**/Dependencies/
 *.zip
-.devcontainer/
-AddChatCommandMod/.devcontainer/.devcontainer.json
+**/.devcontainer/
