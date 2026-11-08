@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using AmongUs.Data.Settings;
 using Microsoft.VisualBasic.FileIO;
 
@@ -6,34 +5,39 @@ namespace AddChatCommandMod;
 
 public static class ModTranslations
 {
-    static readonly Dictionary<string,string> Translations = new();
-    static Stream? TranslationsFilePath;
-    
-    public static void GetFilePath(Stream stream)
+    static readonly Dictionary<string, string> Translations = new();
+    public static void SetCurrentLanguage(LanguageSettingsData __instance)
     {
-        TranslationsFilePath = stream;
-    }
-
-    public static void GetCurrentLanguage(LanguageSettingsData __instance)
-    {
-        byte Translationsindex = __instance.CurrentLanguage switch
+        byte translationColumnIndex = __instance.CurrentLanguage switch
         {
             SupportedLangs.Japanese => 1,
             SupportedLangs.English => 2,
             _ => 2,
        };
-        
-        SetTranslations(Translationsindex);
+        SetTranslations(translationColumnIndex);
     }
 
-    static void SetTranslations(byte index)
+    static void SetTranslations(byte columnIndex)
     {
-        try
+        byte[]? translationData = ResourceManager.GetBytes("AddChatCommandMod.Resources.Translations.ModTranslations.csv");
+        Stream? translationStream = translationData switch
         {
-            using (TextFieldParser parser = new(TranslationsFilePath))
+            null => null,
+            _ => new MemoryStream(translationData),
+        };
+
+        if (translationStream == null)
+        {
+            Logger.Log.LogError("TranslationsStreamがnullのため、翻訳を作成しませんでした。");
+            return;
+        }
+        
+        try
+        { 
+            // 毎回初期化
+            Translations.Clear();
+            using (TextFieldParser parser = new(translationStream,System.Text.Encoding.UTF8,true))
             {
-                // 毎回初期化
-                Translations.Clear();
                 parser.SetDelimiters(",");
                 while (!parser.EndOfData)
                 {
@@ -44,7 +48,7 @@ public static class ModTranslations
                     string[]? row = parser.ReadFields();
 
                     // 「」のときと、「,」のときなど
-                    if (row == null || row.Length == 0 || row[0] == "" || row[0].StartsWith("#"))
+                    if (string.IsNullOrEmpty(row?[0]) || row.Length == 0 || row[0].StartsWith("#"))
                         continue;
                     
                     if(row.Length < 3)
@@ -53,21 +57,20 @@ public static class ModTranslations
                         continue;
                     }
                     
-                    SetTranslation(row[0],row[index]);
-
+                    AddTranslation(row[0],row[columnIndex]);
                 }
-            }   
+            }
         }
-        catch
+        catch(Exception ex)
         {
-            Logger.Log.LogError("ModTranslations.csvが読み込めていません。翻訳処理を中断します");
-            return;
+            Logger.Log.LogError($"翻訳処理中に例外{ex}が発生。");
         }
     }
+            
 
 
     // 言語設定が変わった際、辞書型Translationsの中身をリセットすることを忘れないようにする。
-    static void SetTranslation(string key, string translationText)
+    static void AddTranslation(string key, string translationText)
     {
         if (Translations.ContainsKey(key))
         {
