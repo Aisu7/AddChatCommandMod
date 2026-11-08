@@ -3,3 +3,4 @@
 **/Dependencies/
 *.zip
 **/.devcontainer/
+**/.devcontainer.json
