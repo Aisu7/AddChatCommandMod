@@ -84,7 +84,7 @@
       <HintPath>$(BepInExPath)/interop/UnityEngine.AudioModule.dll</HintPath>
     </Reference>
 
-    <EmbeddedResource Include = "Resources/Translations/ModTranslations.csv" /> 
+    <EmbeddedResource Include="AddChatCommandMod/Resources/Translations/ModTranslations.csv" /> 
 
 </ItemGroup>
 </Project>

@@ -20,6 +20,10 @@ public class SendChatPatch
             return true;
 
         string ChatText = __instance.freeChatField.textArea.text;
+        
+        //翻訳試す仮の
+        string kari = ModTranslations.GetString(COMMAND.NAME.MESSAGE);
+        Logger.Log.LogInfo($"{kari}:ほんやく");
         return true;
     }
 }

@@ -7,8 +7,7 @@ namespace AddChatCommandMod;
 public class RunStartUpPatch
 {
     public static void Postfix()
-    {
-        
+    {       
         
     }
 }
