@@ -32,7 +32,7 @@ public class SendChatPatch
 [HarmonyPatch(typeof(ChatController),nameof(ChatController.AddChat))]
 public class AddChatPatch
 {
-    public static void Postfix(ChatController __instance, PlayerControl sourcePlayer)
+    public static void Postfix(ChatController __instance, PlayerControl sourcePlayer, string chatText)
     {
         
     }
