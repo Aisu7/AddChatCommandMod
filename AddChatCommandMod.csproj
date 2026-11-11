@@ -84,7 +84,13 @@
       <HintPath>$(BepInExPath)/interop/UnityEngine.AudioModule.dll</HintPath>
     </Reference>
 
-    <EmbeddedResource Include="AddChatCommandMod/Resources/Translations/ModTranslations.csv" /> 
+      <EmbeddedResource Include="AddChatCommandMod/Resources/Translations/ModTranslations.csv"
+      LogicalName="ModTranslations.csv" />
 
+    <EmbeddedResource Include="AddChatCommandMod/Resources/Images/AddChatCommandMod-Logo.png"
+      LogicalName="AddChatCommandMod-Logo.png" />
+      
 </ItemGroup>
+
+  
 </Project>

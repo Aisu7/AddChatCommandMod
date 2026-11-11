@@ -1,3 +1,4 @@
+using AmongUs.Data.Settings;
 using HarmonyLib;
 
 namespace AddChatCommandMod;
@@ -12,11 +13,11 @@ public class HandleChangePatch
 }*/
 
 
-[HarmonyPatch(typeof(LanguageSettingsData),nameof(LanguageSettingsData.LoadComplete))]
+[HarmonyPatch(typeof(LanguageSettingsData),nameof(LanguageSettingsData.OnLoadComplete))]
 public class LoadCompletePatch
 {
     public static void Postfix(LanguageSettingsData __instance) 
     {        
-        ModTranslations.GetCurrentLanguage(__instance);
+        ModTranslations.SetCurrentLanguage(__instance);
     }
 }

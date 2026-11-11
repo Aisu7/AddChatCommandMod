@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace AddChatCommandMod;
 
 [BepInPlugin(GUID, ModName, Version)]
-class Main : BasePlugin
+public class Main : BasePlugin
 {
     const string GUID = "com.aisu7.acm";
     const string ModName = "AddChatCommandMod";
@@ -40,7 +40,8 @@ public static class ResourceManager
     static readonly Dictionary<string, byte[]> SavedFiles = new();
     static readonly List<string> NeedFileNames = new()
     {
-        "AddChatCommandMod.Resources.Translations.ModTranslations.csv",
+        "ModTranslations.csv",
+        "AddChatCommandMod-Logo.png",
     };
 
     public static void SetUpResources()
@@ -48,6 +49,7 @@ public static class ResourceManager
         // 全ファイル名文nameへの代入が完了するまで
         foreach (string? name in typeof(Main).Assembly.GetManifestResourceNames())
         {
+            Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"Resource: {name}");
             if (NeedFileNames.Contains(name))
             {
                 using (Stream? stream = typeof(Main).Assembly.GetManifestResourceStream(name))
@@ -92,7 +94,7 @@ public static class ResourceManager
 
 
 [HarmonyPatch(typeof(ModManager),nameof(ModManager.LateUpdate))]
-class ShowModStamp
+public class ShowModStamp
 {
     public static void Postfix(ModManager __instance)
     {

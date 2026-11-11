@@ -19,7 +19,7 @@ public static class ModTranslations
 
     static void SetTranslations(byte columnIndex)
     {
-        byte[]? translationData = ResourceManager.GetBytes("AddChatCommandMod.Resources.Translations.ModTranslations.csv");
+        byte[]? translationData = ResourceManager.GetBytes("ModTranslations.csv");
         Stream? translationStream = translationData switch
         {
             null => null,
@@ -28,7 +28,7 @@ public static class ModTranslations
 
         if (translationStream == null)
         {
-            Logger.Log.LogError("TranslationsStreamがnullのため、翻訳を作成しませんでした。");
+            Logger.AddChatCommandModLog(Logger.Log.LogError, "TranslationsStreamがnullのため、翻訳を作成しませんでした。");
             return;
         }
         
@@ -53,7 +53,7 @@ public static class ModTranslations
                     
                     if(row.Length < 3)
                     {
-                        Logger.Log.LogWarning($"{row[0]}の翻訳が不足しています");
+                        Logger.AddChatCommandModLog(Logger.Log.LogWarning, $"{row[0]}の翻訳が不足しています");
                         continue;
                     }
                     
@@ -63,7 +63,7 @@ public static class ModTranslations
         }
         catch(Exception ex)
         {
-            Logger.Log.LogError($"翻訳処理中に例外{ex}が発生。");
+            Logger.AddChatCommandModLog(Logger.Log.LogError, $"翻訳処理中に例外{ex}が発生。");
         }
     }
             
@@ -74,7 +74,7 @@ public static class ModTranslations
     {
         if (Translations.ContainsKey(key))
         {
-            Logger.Log.LogWarning($"[{key}]の翻訳が重複しています。上書きします");
+            Logger.AddChatCommandModLog(Logger.Log.LogWarning, $"[{key}]の翻訳が重複しています。上書きします");
             Translations.Remove(key);
         }
 
@@ -87,7 +87,7 @@ public static class ModTranslations
             return value;
         else
         {
-            Logger.Log.LogWarning($"[{key}]の翻訳が未設定");
+            Logger.AddChatCommandModLog(Logger.Log.LogWarning, $"[{key}]の翻訳が未設定");
             return key;
         }
     }

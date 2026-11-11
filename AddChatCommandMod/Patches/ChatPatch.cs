@@ -8,7 +8,7 @@ namespace AddChatCommandMod;
 
 
 [HarmonyPatch(typeof(ChatController),nameof(ChatController.SendChat))]
-public class SendChatPatch
+class SendChatPatch
 {
     public static bool Prefix(ChatController __instance)
     {
@@ -22,7 +22,7 @@ public class SendChatPatch
         string ChatText = __instance.freeChatField.textArea.text;
         
         //翻訳試す仮の
-        string kari = ModTranslations.GetString(COMMAND.NAME.MESSAGE);
+        string kari = ModTranslations.GetString("COMMAND.NAME.MESSAGE");
         Logger.Log.LogInfo($"{kari}:ほんやく");
         return true;
     }
@@ -30,9 +30,9 @@ public class SendChatPatch
         
     
 [HarmonyPatch(typeof(ChatController),nameof(ChatController.AddChat))]
-public class AddChatPatch
+class AddChatPatch
 {
-    public static void Postfix(ChatController __instance, PlayerControl sourceplayer)
+    public static void Postfix(ChatController __instance, PlayerControl sourcePlayer)
     {
         
     }
