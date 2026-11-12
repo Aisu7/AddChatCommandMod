@@ -1,5 +1,11 @@
-# test
-AddChatCommanderModを公開しようか迷っております。チャットコマンドやチャットの自動翻訳などの利便機能を含んでおります。ライセンスなどのことにあまり詳しくないため、権利の侵害がないか確認してから、気が向けば公開するかもしれません
+＃AddChatCommandMod
+<img src="AddChatCommandMod/Resources/Images/AddChatCommandMod-Logo.png" alt="AddChatCommnadMod-Logo" width="100%">
+
+> [!NOTE]
+> このModは現在開発段階にあります。
+
+AmongUsに関する、多数の利便機能を追加するHost-Modです。
+
 <br/>
 > [!WARNING]
 > This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.<br>
