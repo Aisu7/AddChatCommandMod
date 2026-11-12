@@ -1,12 +1,12 @@
-＃ AddChatCommandMod
+# AddChatCommandMod
 <img src="AddChatCommandMod/Resources/Images/AddChatCommandMod-Logo.png" alt="AddChatCommnadMod-Logo" width="100%">
-
-[> For English here](https://github.com/Aisu7/AddChatCommandMod/blob/22d3903415cd60e09d4465f8e1a29808904d5ee4/.github/README/English/README_en.md)
 
 > [!NOTE]
 > このModは現在開発段階にあります。
 
-AmongUsに関する、多数の利便機能を追加するHost-Modです。<br/>
+[> For English here](https://github.com/Aisu7/AddChatCommandMod/blob/22d3903415cd60e09d4465f8e1a29808904d5ee4/.github/README/English/README_en.md)
+AmongUsに、多数の利便機能を追加するHost-Modです。<br/>
+最新版は[こちら！]()
 
 > [!WARNING]
 > This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.<br>
