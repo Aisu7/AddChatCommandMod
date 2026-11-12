@@ -19,7 +19,7 @@ class SendChatPatch
         if (!AmongUsClient.Instance.AmHost)
             return true;
 
-        string ChatText = __instance.freeChatField.textArea.text;
+        string chatText = __instance.freeChatField.textArea.text;
         
         //翻訳試す仮の
         string kari = ModTranslations.GetString("COMMAND.NAME.MESSAGE");
@@ -32,7 +32,7 @@ class SendChatPatch
 [HarmonyPatch(typeof(ChatController),nameof(ChatController.AddChat))]
 class AddChatPatch
 {
-    public static void Postfix(ChatController __instance, PlayerControl sourcePlayer)
+    public static void Prefix(ChatController __instance, PlayerControl sourcePlayer, string chatText)
     {
         
     }
