@@ -17,6 +17,10 @@ AmongUsに、多数の利便機能を追加するHost-Modです。
 
 Wikiは[こちら！](https://github.com/Aisu7/AddChatCommandMod/wiki)
 ## 対応言語
+
+> [!TIP]
+> aaa
+
 　現在の対応言語はこちらです
    - 日本語
      * 完全対応済み
