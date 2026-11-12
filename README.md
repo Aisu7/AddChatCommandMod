@@ -23,6 +23,6 @@ Wikiは[こちら！](https://github.com/Aisu7/AddChatCommandMod/wiki)
      * 一部対応済み
     
 ## 貢献方法
-詳しくは[こちら！][()
+詳しくは[こちら！](https://github.com/Aisu7/AddChatCommandMod/blob/developed/.github/CONTRIBUTING/Japanese/CONTRIBUTING.md)
 
 ## 参考
