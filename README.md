@@ -1,5 +1,5 @@
 # AddChatCommandMod
-<img src="Images/AddChatCommandMod-Logo.png" alt="AddChatCommnadMod-Logo" width="100%">
+<img src=".github/README/AddChatCommandMod-Logo.png" alt="AddChatCommnadMod-Logo" width="100%">
 
 [![GitHub release](https://img.shields.io/github/v/release/Aisu7/AddChatCommandMod?style=for-the-badge&logo=github&label=Latest&color=blue)](https://github.com/Aisu7/AddChatCommandMod/releases/latest)
 > [!NOTE]
