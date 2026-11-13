@@ -1,8 +1,6 @@
 
 namespace AddChatCommandMod;
 
-
-　　　// これをSetの方に配置。nullかどうかも見極めたいので、初期の代入はSetに回す
 public abstract class TypeSendandSet
 {
     public abstract bool SendType {get; protected set;}
@@ -42,7 +40,7 @@ public abstract class TypeSendandSet
     {
         if (SendType == true)
         {
-            
+
         }
         VanillaRpc.SendPrivateChat()
 
