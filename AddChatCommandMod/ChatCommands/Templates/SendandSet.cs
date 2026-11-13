@@ -5,14 +5,7 @@ namespace AddChatCommandMod;
 　　　// これをSetの方に配置。nullかどうかも見極めたいので、初期の代入はSetに回す
 public abstract class TypeSendandSet
 {
-    public abstract SendCmdType sendCmdType {get; protected set;}
-
-    public enum  SendCmdType
-    {
-        HostOnly,
-        AllClientSend,
-    }
-
+    public abstract bool SendType {get; protected set;}
     public virtual string SetText {get; protected set;} = "";
 
 
@@ -22,23 +15,13 @@ public abstract class TypeSendandSet
     {
         if (IsEnabled)
         {
-            if (sendCmdType == SendCmdType.HostOnly)
-            {
-                
-                
-            }
-            if (sendCmdType == SendCmdType.AllClientSend)
-            {
 
-
-                
-            }
         }
         
     
             if (SetText == "")
             {
-                // Rpcでローカルチャットを返す処理
+             // Rpcでローカルチャットを返す処理
                 // ($"{FullName_jp}テキストが未設定です。"); 
                 // 個人的なメモ。　ChatRpcのほうに、システムメッセージを書き忘れないようにして。
                 // また、Globalのほうは第一引数bool型でホスト死亡時も送るか、第二引数string型でテキスト。Localは常時ホスト死亡時表示なので第一引数string型のテキスト
@@ -54,5 +37,17 @@ public abstract class TypeSendandSet
             // Rpcでローカルチャットを返す処理
             // ("そのコマンドは現在無効化されています。");
         //}
+
+    private void SendOption(PlayerControl sourcePlayer)
+    {
+        if (SendType == true)
+        {
+            
+        }
+        VanillaRpc.SendPrivateChat()
+
+    }
+
+    
 }
   
