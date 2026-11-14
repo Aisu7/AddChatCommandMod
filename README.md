@@ -1,11 +1,11 @@
 # AddChatCommandMod
-<img src="AddChatCommandMod/Resources/Images/AddChatCommandMod-Logo.png" alt="AddChatCommnadMod-Logo" width="100%">
+<img src=".github/README/AddChatCommandMod-Logo.png" alt="AddChatCommnadMod-Logo" width="100%">
 
 [![GitHub release](https://img.shields.io/github/v/release/Aisu7/AddChatCommandMod?style=for-the-badge&logo=github&label=Latest&color=blue)](https://github.com/Aisu7/AddChatCommandMod/releases/latest)
 > [!NOTE]
 > このModは現在開発段階にあります。
 
-[> For English README here](https://github.com/Aisu7/AddChatCommandMod/blob/22d3903415cd60e09d4465f8e1a29808904d5ee4/.github/README/English/README_en.md)
+[> For English README Here](https://github.com/Aisu7/AddChatCommandMod/blob/22d3903415cd60e09d4465f8e1a29808904d5ee4/.github/README/English/README_en.md)
 <br/><br/><br/>
 AmongUsに、多数の利便機能を追加するHost-Modです。
 <br/><br/>
@@ -17,6 +17,10 @@ AmongUsに、多数の利便機能を追加するHost-Modです。
 
 Wikiは[こちら！](https://github.com/Aisu7/AddChatCommandMod/wiki)
 ## 対応言語
+
+> [!TIP]
+> aaa
+
 　現在の対応言語はこちらです
    - 日本語
      * 完全対応済み
