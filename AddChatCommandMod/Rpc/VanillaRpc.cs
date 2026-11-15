@@ -17,7 +17,7 @@ public static class VanillaRpc
         PlayerControl.Instance.LocalPlayer.PlayerId,
         ,,)   
     }
-    public static void SendPrivateChat(string message,PlayerControl sourcePlayer)
+    public static void SendPrivateChat(PlayerControl sourcePlayer, string message)
     {
         var writer = SelectChatSender();
         AmongUsClient.Instance.StartRpcImmediately(
