@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AmongUs.Data.Settings;
 using Microsoft.VisualBasic.FileIO;
 
