@@ -1,0 +1,8 @@
+
+
+namespace AddChatCommandMod;
+
+public class 
+{
+
+}
