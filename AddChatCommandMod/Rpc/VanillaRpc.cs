@@ -17,7 +17,7 @@ public static class VanillaRpc
         PlayerControl.Instance.LocalPlayer.PlayerId,
         ,,)   
     }
-    public static void SendPrivateChat(PlayerControl sourcePlayer, string message)
+    public static void SendPrivateChat(PlayerControl readerPlayer, string message)
     {
         var writer = SelectChatSender();
         AmongUsClient.Instance.StartRpcImmediately(
@@ -26,14 +26,14 @@ public static class VanillaRpc
     }
 
     // 通常通りにチャットが送信できる
-    public static void SendNormalChat(string message, PlayerControl sourcePlayer)
+    public static void SendNormalChat(PlayerControl sourcePlayer, string message)
     {
         AmongUsClient.Instance.StartRpcImmediately(
         sourcePlayer.PlayerId,
         ,,)
     }
 
-    public static void SendAllClientChat(string message, PlayerControl sourcePlayer)
+    public static void SendAllClientChat(string message)
     {
         var writer = SelectChatSender();
         AmongUsClient.Instance.StartRpcImmediately(

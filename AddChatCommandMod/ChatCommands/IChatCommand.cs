@@ -1,5 +1,3 @@
-
-
 namespace AddChatCommandMod;
 
 public interface IChatCommand
@@ -8,6 +6,4 @@ public interface IChatCommand
     string CommandKey {get;}
     string DisplayName {get;}
     string Description {get;}
-    void Execute(string text,PlayerControl sourcePlayer);
-
 }
