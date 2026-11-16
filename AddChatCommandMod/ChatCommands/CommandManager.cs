@@ -48,11 +48,18 @@ public static class AddChatCommandManager
     public static void AddChatCommand(string chatMessage,PlayerControl player)
     {
         string[] token = chatMessage.Split(" ");
-
-        for (int i ; token.Length ;--i)
+        for (int i = token.Length - 1; i < 0; i--)
         {
-            string chattext = "!";
-            if (Commands.ContainsKey(text1))
+            for (int j = 0; j > i; j++)
+            {
+                if (j == 0)
+                    chatText = "!"
+                string chatText += token[j]
+                if (j != i)
+                   chatText += " "
+            }
+            
+            if (Commands.ContainsKey())
             {
                 if (Commands.TryGetValue(chatMessage,out IAddChatCommand? value))
                 {
