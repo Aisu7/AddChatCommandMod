@@ -10,7 +10,7 @@ public class WelcomeSend : IAddChatCommand, ISendChatCommand
 {
     // Category, Description, DisplayNameはガイド側で翻訳するという流れかな。
     string IChatCommand.Category => "Welcome";
-    string IChatCommand.CommandKey => "w";
+    string IChatCommand.CommandKey => "!w";
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#送信";
 
@@ -66,7 +66,7 @@ public class WelcomeSend : IAddChatCommand, ISendChatCommand
 public class WelcomeSet : ISendChatCommand
 {
     string IChatCommand.Category => "Welcome";
-    string IChatCommand.CommandKey => "w s";
+    string IChatCommand.CommandKey => "!w s";
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#設定";
 
@@ -95,7 +95,7 @@ public class WelcomeSet : ISendChatCommand
 public class WelcomeSwitchOn : ISendChatCommand
 {
     string IChatCommand.Category => "Welcome";
-    string IChatCommand.CommandKey => "w on";
+    string IChatCommand.CommandKey => "!w on";
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#有効化";
 
@@ -110,7 +110,7 @@ public class WelcomeSwitchOn : ISendChatCommand
 public class WelcomeSwitchOff : ISendChatCommand
 {
     string IChatCommand.Category => "Welcome";
-    string IChatCommand.CommandKey => "w off";
+    string IChatCommand.CommandKey => "!w off";
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#無効化";
 

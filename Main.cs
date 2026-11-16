@@ -16,6 +16,7 @@ public class Main : BasePlugin
     public override void Load()
     {
         ResourceManager.SetUpResources();
+        Registry.RegisterCommands();
 
         string dynamicName = this.GetType().Name;
         var harmony = new Harmony(GUID);
