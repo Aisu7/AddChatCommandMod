@@ -12,33 +12,54 @@ public static class VanillaRpc
 {
     public static void SendLocalChat(string message)
     {
-        var writer = SelectChatSender();
-        AmongUsClient.Instance.StartRpcImmediately(
-        PlayerControl.Instance.LocalPlayer.PlayerId,
-        ,,)   
+        var player = SelectChatSender();
+        MessageWriter writer = 
+            AmongUsClient.Instance.StartRpcImmediately(
+            player.NetId,
+            (byte)RpcCalls.SendChat,
+            SendOption.Reliable,
+            AmongUsClient.Instance.ClientId);
+        writer.Write(message);
+        AmongUsClient.Instance.FinishRpcImmediately(writer);
     }
     public static void SendPrivateChat(PlayerControl readerPlayer, string message)
     {
-        var writer = SelectChatSender();
-        AmongUsClient.Instance.StartRpcImmediately(
-        writer.PlayerId,
-        ,,);
+        var player = SelectChatSender();
+        MessageWriter writer =
+            AmongUsClient.Instance.StartRpcImmediately(
+            player.NetId,
+            (byte)RpcCalls.SendChat,
+            SendOption.Reliable,
+            readerPlayer.OwnerId);
+
+        writer.Write(message);
+        AmongUsClient.Instance.FinishRpcImmediately(writer);
     }
 
     // 通常通りにチャットが送信できる
     public static void SendNormalChat(PlayerControl sourcePlayer, string message)
     {
-        AmongUsClient.Instance.StartRpcImmediately(
-        sourcePlayer.PlayerId,
-        ,,)
+        MessageWriter writer =
+            AmongUsClient.Instance.StartRpcImmediately(
+            sourcePlayer.NetId,
+            (byte)RpcCalls.SendChat,
+            SendOption.Reliable);
+
+        writer.Write(message);
+        AmongUsClient.Instance.FinishRpcImmediately(writer);
     }
 
     public static void SendAllClientChat(string message)
     {
-        var writer = SelectChatSender();
-        AmongUsClient.Instance.StartRpcImmediately(
-        writer.PlayerId,
-        ,,)
+        var player = SelectChatSender();
+        MessageWriter writer =
+            AmongUsClient.Instance.StartRpcImmediately(
+            player.NetId,
+            (byte)RpcCalls.SendChat,
+            SendOption.Reliable);
+
+        writer.Write(message);
+        AmongUsClient.Instance.FinishRpcImmediately(writer);
     }
 
 
@@ -51,7 +72,7 @@ public static class VanillaRpc
         }
         else
         {
-            PlayerControl player;
+            PlayerControl? player;
             player = PlayerControl.AllPlayerControls.ToArray().Where(x => x != null && x.Data != null && !x.Data.IsDead).OrderBy(x => x.PlayerId).FirstOrDefault();
             if (player == null)
             {

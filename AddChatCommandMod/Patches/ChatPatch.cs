@@ -28,7 +28,7 @@ class SendChatPatch
 
         if (chatText.StartsWith("!"))
         {
-            
+            return SendChatCommandManager.SendChat(chatText);
         }
         return true;
     }
@@ -41,5 +41,9 @@ class AddChatPatch
     public static void Prefix(ChatController __instance, PlayerControl sourcePlayer, string chatText)
     {
         
+        if (chatText.StartsWith("!"))
+        {
+            AddChatCommandManager.AddChatCommand(chatText,sourcePlayer);
+        }
     }
 }
