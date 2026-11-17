@@ -28,7 +28,7 @@ class SendChatPatch
 
         if (chatText.StartsWith("!"))
         {
-            return SendChatCommandManager.SendChat(chatText);
+            return SendChatCommandManager.SendChat(chatText, __instance);
         }
         return true;
     }

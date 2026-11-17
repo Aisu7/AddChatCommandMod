@@ -23,13 +23,6 @@ public class WelcomeSend : IAddChatCommand, ISendChatCommand
             return;
         }
 
-        // Command側ではなく、Manager側で処理
-        /*if (sourcePlayer == null)
-        {
-            Logger.AddChatCommandModLog(Logger.Log.LogWelcome,"sourcePlayer == nullです");
-            return false;
-        }*/
-
         if (WelcomeStore.Text == "")
         {
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"Text == \"\" です");
@@ -41,11 +34,12 @@ public class WelcomeSend : IAddChatCommand, ISendChatCommand
 
     }
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText)
+    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatControl __instance )
     {
         if (!WelcomeStore.IsEnabled)
         {
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"IsEnable == falseです");
+            __instance.freeChatField.Clear();
             return true;
         }
         
@@ -53,10 +47,11 @@ public class WelcomeSend : IAddChatCommand, ISendChatCommand
         {
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"Text == \"\" です");
             VanillaRpc.SendLocalChat("登録された入室メッセージがありません。");
+            __instance.freeChatField.Clear();
             return false;
         }
         VanillaRpc.SendLocalChat(WelcomeStore.Text);
-
+        __instance.freeChatField.Clear();
         return true;
     }
 }
@@ -70,11 +65,12 @@ public class WelcomeSet : ISendChatCommand
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#設定";
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText)
+    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatControl __instance)
     {
         if (!WelcomeStore.IsEnabled)
         {
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"IsEnable == falseです");
+            __instance.freeChatField.Clear();
             return false;
         }
         //　IsNullOrWhiteSpace ⊂ IsNullOrEmpty らしい。
@@ -82,11 +78,13 @@ public class WelcomeSet : ISendChatCommand
         {
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"Text == \"\" です");
             VanillaRpc.SendLocalChat("Textが空です");
+            __instance.freeChatField.Clear();
             return false;
         }
 
         WelcomeStore.Text = argumentText;
         VanillaRpc.SendAllClientChat(WelcomeStore.Text);
+        __instance.freeChatField.Clear();
         return false;
     }
 }
@@ -99,10 +97,11 @@ public class WelcomeSwitchOn : ISendChatCommand
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#有効化";
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText)
+    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatControl __instance])
     {
         WelcomeStore.IsEnabled = true;
         VanillaRpc.SendAllClientChat("入室メッセージを有効化しました。");
+        __instance.freeChatField.Clear();
         return false;
     }
 }
@@ -114,10 +113,11 @@ public class WelcomeSwitchOff : ISendChatCommand
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#無効化";
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText)
+    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatControl __instance)
     {
         WelcomeStore.IsEnabled = false;
         VanillaRpc.SendAllClientChat("入室メッセージを無効化しました。");
+        __instance.freeChatField.Clear();
         return false;
     }
 }

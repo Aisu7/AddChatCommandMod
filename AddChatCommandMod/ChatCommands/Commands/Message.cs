@@ -21,14 +21,7 @@ public class MessageSend : IAddChatCommand, ISendChatCommand
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"IsEnable == falseです");
             // 各クライアントに情報は送らない
             return;
-        }
-
-        // Command側ではなく、Manager側で処理
-        /*if (sourcePlayer == null)
-        {
-            Logger.AddChatCommandModLog(Logger.Log.LogMessage,"sourcePlayer == nullです");
-            return false;
-        }*/
+        }    
 
         if (MessageStore.Text == "")
         {
