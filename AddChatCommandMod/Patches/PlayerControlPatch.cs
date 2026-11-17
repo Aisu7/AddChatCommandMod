@@ -1,5 +1,9 @@
-using HarmontLib;
+/*using HarmonyLib;
 
 namespace AddChatCommandMod;
 
-static class Patch;
+[HarmonyPatch(typeof(PlayerControl),nameof(PlayerControl.AllPlayerControls.))]
+class Patch
+{
+    
+}*/

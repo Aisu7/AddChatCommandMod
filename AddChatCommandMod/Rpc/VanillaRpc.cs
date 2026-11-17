@@ -85,4 +85,10 @@ public static class VanillaRpc
     
     }
 
+    public static void MurderPlayer(PlayerControl MurderedPlayer)
+    {
+        var player = SelectChatSender();
+        PlayerControl __instance = new();
+        __instance.RpcMurderPlayer(player,true);
+    }
 }

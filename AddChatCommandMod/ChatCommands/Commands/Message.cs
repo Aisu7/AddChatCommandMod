@@ -26,7 +26,7 @@ public class MessageSend : IAddChatCommand, ISendChatCommand
         if (MessageStore.Text == "")
         {
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"Text == \"\" です");
-            VanillaRpc.SendPrivateChat(sourcePlayer,"メッセージはありません。");
+            VanillaRpc.SendPrivateChat(sourcePlayer,"登録されたメッセージがありません。");
             return;
         }
 
@@ -34,11 +34,13 @@ public class MessageSend : IAddChatCommand, ISendChatCommand
 
     }
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText)
+    bool ISendChatCommand.ExecuteSendChat(string argumentText,ChatController __instance)
     {
         if (!MessageStore.IsEnabled)
         {
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"IsEnable == falseです");
+            VanillaRpc.SendLocalChat("そのコマンドは無効化されています");
+            __instance.freeChatField.Clear();
             return true;
         }
         
@@ -46,10 +48,11 @@ public class MessageSend : IAddChatCommand, ISendChatCommand
         {
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"Text == \"\" です");
             VanillaRpc.SendLocalChat("登録されたメッセージがありません。");
+            __instance.freeChatField.Clear();
             return false;
         }
         VanillaRpc.SendLocalChat(MessageStore.Text);
-
+        __instance.freeChatField.Clear();
         return true;
     }
 }
@@ -63,23 +66,26 @@ public class MessageSet : ISendChatCommand
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#設定";
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText)
+    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance)
     {
         if (!MessageStore.IsEnabled)
         {
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"IsEnable == falseです");
+            __instance.freeChatField.Clear();
             return false;
         }
         //　IsNullOrWhiteSpace ⊂ IsNullOrEmpty らしい。
         if (string.IsNullOrWhiteSpace(argumentText))
         {
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"Text == \"\" です");
-            VanillaRpc.SendLocalChat("Textが空です");
+            VanillaRpc.SendLocalChat("〇使い方\n!m s {設定したいテキスト}");
+            __instance.freeChatField.Clear();
             return false;
         }
 
         MessageStore.Text = argumentText;
         VanillaRpc.SendAllClientChat(MessageStore.Text);
+        __instance.freeChatField.Clear();
         return false;
     }
 }
@@ -92,10 +98,11 @@ public class MessageSwitchOn : ISendChatCommand
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#有効化";
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText)
+    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance)
     {
         MessageStore.IsEnabled = true;
         VanillaRpc.SendAllClientChat("メッセージを有効化しました。");
+        __instance.freeChatField.Clear();
         return false;
     }
 }
@@ -107,10 +114,11 @@ public class MessageSwitchOff : ISendChatCommand
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#無効化";
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText)
+    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance)
     {
         MessageStore.IsEnabled = false;
         VanillaRpc.SendAllClientChat("メッセージを無効化しました。");
+        __instance.freeChatField.Clear();
         return false;
     }
 }

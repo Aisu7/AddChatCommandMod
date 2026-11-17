@@ -1,10 +1,22 @@
-using AmongUs.Data.Settings;
 using HarmonyLib;
 using InnerNet;
-using Rewired.UI.ControlMapper;
-
 
 namespace AddChatCommandMod;
+
+
+
+[HarmonyPatch(typeof(ChatController),nameof(ChatController.AddChat))]
+class AddChatPatch
+{
+    public static void Prefix(ChatController __instance, PlayerControl sourcePlayer, string chatText)
+    {
+        
+        if (chatText.StartsWith("!"))
+        {
+            AddChatCommandManager.AddChatCommand(chatText,sourcePlayer);
+        }
+    }
+}
 
 
 [HarmonyPatch(typeof(ChatController),nameof(ChatController.SendChat))]
@@ -31,19 +43,5 @@ class SendChatPatch
             return SendChatCommandManager.SendChat(chatText, __instance);
         }
         return true;
-    }
-}
-        
-    
-[HarmonyPatch(typeof(ChatController),nameof(ChatController.AddChat))]
-class AddChatPatch
-{
-    public static void Prefix(ChatController __instance, PlayerControl sourcePlayer, string chatText)
-    {
-        
-        if (chatText.StartsWith("!"))
-        {
-            AddChatCommandManager.AddChatCommand(chatText,sourcePlayer);
-        }
     }
 }

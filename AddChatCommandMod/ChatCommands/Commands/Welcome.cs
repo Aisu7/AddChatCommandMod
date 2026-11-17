@@ -1,3 +1,5 @@
+using HarmonyLib;
+
 namespace AddChatCommandMod;
 
 public static class WelcomeStore
@@ -34,7 +36,7 @@ public class WelcomeSend : IAddChatCommand, ISendChatCommand
 
     }
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatControl __instance )
+    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance )
     {
         if (!WelcomeStore.IsEnabled)
         {
@@ -65,7 +67,7 @@ public class WelcomeSet : ISendChatCommand
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#設定";
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatControl __instance)
+    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance)
     {
         if (!WelcomeStore.IsEnabled)
         {
@@ -97,7 +99,7 @@ public class WelcomeSwitchOn : ISendChatCommand
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#有効化";
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatControl __instance])
+    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance)
     {
         WelcomeStore.IsEnabled = true;
         VanillaRpc.SendAllClientChat("入室メッセージを有効化しました。");
@@ -113,7 +115,7 @@ public class WelcomeSwitchOff : ISendChatCommand
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#無効化";
 
-    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatControl __instance)
+    bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance)
     {
         WelcomeStore.IsEnabled = false;
         VanillaRpc.SendAllClientChat("入室メッセージを無効化しました。");
