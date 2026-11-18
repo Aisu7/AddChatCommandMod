@@ -5,7 +5,7 @@ public static class KillStore
     public static bool IsEnabled = true;
 }
 
-public class Kill : ISendChatCommand
+public class KillSend : ISendChatCommand
 {
     string IChatCommand.Category => "Kill";
     string IChatCommand.CommandKey => "!k";
