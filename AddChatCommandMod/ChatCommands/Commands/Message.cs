@@ -84,7 +84,7 @@ public class MessageSet : ISendChatCommand
         }
 
         MessageStore.Text = argumentText;
-        VanillaRpc.SendAllClientChat(MessageStore.Text);
+        VanillaRpc.SendAllClientsChat(MessageStore.Text);
         __instance.freeChatField.Clear();
         return false;
     }
@@ -101,7 +101,7 @@ public class MessageSwitchOn : ISendChatCommand
     bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance)
     {
         MessageStore.IsEnabled = true;
-        VanillaRpc.SendAllClientChat("メッセージを有効化しました。");
+        VanillaRpc.SendAllClientsChat("メッセージを有効化しました。");
         __instance.freeChatField.Clear();
         return false;
     }
@@ -117,7 +117,7 @@ public class MessageSwitchOff : ISendChatCommand
     bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance)
     {
         MessageStore.IsEnabled = false;
-        VanillaRpc.SendAllClientChat("メッセージを無効化しました。");
+        VanillaRpc.SendAllClientsChat("メッセージを無効化しました。");
         __instance.freeChatField.Clear();
         return false;
     }

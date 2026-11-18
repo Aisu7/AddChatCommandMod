@@ -85,7 +85,7 @@ public class WelcomeSet : ISendChatCommand
         }
 
         WelcomeStore.Text = argumentText;
-        VanillaRpc.SendAllClientChat(WelcomeStore.Text);
+        VanillaRpc.SendAllClientsChat(WelcomeStore.Text);
         __instance.freeChatField.Clear();
         return false;
     }
@@ -102,7 +102,7 @@ public class WelcomeSwitchOn : ISendChatCommand
     bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance)
     {
         WelcomeStore.IsEnabled = true;
-        VanillaRpc.SendAllClientChat("入室メッセージを有効化しました。");
+        VanillaRpc.SendAllClientsChat("入室メッセージを有効化しました。");
         __instance.freeChatField.Clear();
         return false;
     }
@@ -118,7 +118,7 @@ public class WelcomeSwitchOff : ISendChatCommand
     bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance)
     {
         WelcomeStore.IsEnabled = false;
-        VanillaRpc.SendAllClientChat("入室メッセージを無効化しました。");
+        VanillaRpc.SendAllClientsChat("入室メッセージを無効化しました。");
         __instance.freeChatField.Clear();
         return false;
     }

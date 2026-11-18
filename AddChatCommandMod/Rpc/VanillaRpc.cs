@@ -49,7 +49,7 @@ public static class VanillaRpc
         AmongUsClient.Instance.FinishRpcImmediately(writer);
     }
 
-    public static void SendAllClientChat(string message)
+    public static void SendAllClientsChat(string message)
     {
         var player = SelectChatSender();
         MessageWriter writer =
@@ -85,10 +85,9 @@ public static class VanillaRpc
     
     }
 
-    public static void MurderPlayer(PlayerControl MurderedPlayer)
+    public static void MurderPlayer(PlayerControl targetPlayerId)
     {
         var player = SelectChatSender();
-        PlayerControl __instance = new();
-        __instance.RpcMurderPlayer(player,true);
+        player.RpcMurderPlayer(targetPlayerId,true);
     }
 }
