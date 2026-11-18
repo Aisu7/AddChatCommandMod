@@ -4,3 +4,5 @@
 *.zip
 **/.devcontainer/
 **/.devcontainer.json
+.vs/
+.json/

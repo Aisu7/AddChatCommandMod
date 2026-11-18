@@ -49,7 +49,7 @@ public static class ModTranslations
                     string[]? row = parser.ReadFields();
 
                     // 「」のときと、「,」のときなど
-                    if (string.IsNullOrEmpty(row?[0]) || row.Length == 0 || row[0].StartsWith("#"))
+                    if (row == null || row.Length == 0 || string.IsNullOrEmpty(row?[0]) || row[0].StartsWith("#"))
                         continue;
                     
                     if(row.Length < 3)

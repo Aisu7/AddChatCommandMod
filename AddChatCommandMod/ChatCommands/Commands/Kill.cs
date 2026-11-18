@@ -21,7 +21,7 @@ public class Kill : ISendChatCommand
             Logger.AddChatCommandModLog(Logger.Log.LogMessage,"IsEnable == falseです");
             VanillaRpc.SendLocalChat("そのコマンドは無効化されています");
             __instance.freeChatField.Clear();
-            return true;
+            return false;
         }
 
         for (int i = 0; i < PlayerControl.AllPlayerControls.Count; i++)
