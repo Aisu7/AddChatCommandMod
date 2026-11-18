@@ -16,9 +16,17 @@ public class Kill : ISendChatCommand
     {
         Dictionary<string, PlayerControl> AllPlayerCheckedData = new();
 
+        if (!KillStore.IsEnabled)
+        {
+            Logger.AddChatCommandModLog(Logger.Log.LogMessage,"IsEnable == falseです");
+            VanillaRpc.SendLocalChat("そのコマンドは無効化されています");
+            __instance.freeChatField.Clear();
+            return true;
+        }
+
         for (int i = 0; i < PlayerControl.AllPlayerControls.Count; i++)
         {
-            PlayerControl player = new();
+            PlayerControl player = PlayerControl.AllPlayerControls[i];
             var playerName = player.Data.PlayerName;
             AllPlayerCheckedData.Add(playerName,player);
         }

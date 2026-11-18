@@ -8,8 +8,13 @@ namespace AddChatCommandMod;
 [HarmonyPatch(typeof(ChatController),nameof(ChatController.AddChat))]
 class AddChatPatch
 {
-    public static void Prefix(ChatController __instance, PlayerControl sourcePlayer, string chatText)
+    static void Prefix(ChatController __instance, PlayerControl sourcePlayer, string chatText)
     {
+        if (AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Joined)
+            return;
+        
+        if (!AmongUsClient.Instance.AmHost)
+            return;
         
         if (chatText.StartsWith("!"))
         {
@@ -22,7 +27,7 @@ class AddChatPatch
 [HarmonyPatch(typeof(ChatController),nameof(ChatController.SendChat))]
 class SendChatPatch
 {
-    public static bool Prefix(ChatController __instance)
+    static bool Prefix(ChatController __instance)
     {
         
         if (AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Joined)
