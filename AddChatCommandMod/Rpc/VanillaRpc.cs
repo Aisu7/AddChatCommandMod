@@ -85,9 +85,9 @@ public static class VanillaRpc
     
     }
 
-    public static void MurderPlayer(PlayerControl targetPlayerId)
+    public static void MurderPlayer(PlayerControl targetPlayer)
     {
         var player = SelectChatSender();
-        player.RpcMurderPlayer(targetPlayerId,true);
+        player.RpcMurderPlayer(targetPlayer,true);
     }
 }

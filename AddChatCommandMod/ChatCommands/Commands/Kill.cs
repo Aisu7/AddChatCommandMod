@@ -14,18 +14,18 @@ public class Kill : ISendChatCommand
 
     bool ISendChatCommand.ExecuteSendChat(string argumentText, ChatController __instance)
     {
-        PlayerController __instance = new()
-        readonly Dictionary<string, PlayerController> AllPlayerCheckedData = new();
-        foreach (string playerName in PlayerController.AllPlayerControl.Data.playerName)
+        Dictionary<string, PlayerControl> AllPlayerCheckedData = new();
+
+        for (int i = 0; i < PlayerControl.AllPlayerControls.Count; i++)
         {
-            playerName = __instance.Data.playerName;
-            var playerId = __instance.Data.playerId;
-            AllPlayerCheckedData.Add(playerName,playerId)
+            PlayerControl player = new();
+            var playerName = player.Data.PlayerName;
+            AllPlayerCheckedData.Add(playerName,player);
         }
 
-        if (AllPlayerCheckedData.TryGetValue(argumentText,out PlayerController? playerId)
+        if (AllPlayerCheckedData.TryGetValue(argumentText,out PlayerControl? argumentplayer))
         {
-            VanillaRpc.MurderPlayer(playerId);
+            VanillaRpc.MurderPlayer(argumentplayer);
             VanillaRpc.SendLocalChat($"{argumentText} を処刑しました。");
             __instance.freeChatField.Clear();
             return false;
@@ -37,13 +37,11 @@ public class Kill : ISendChatCommand
             return false;
         
         }
-        __instance.freeChatField.Clear();
-        return false;
     }
 }
 
 
-public class MessageSwitchOn : ISendChatCommand
+public class KillSwitchOn : ISendChatCommand
 {
     string IChatCommand.Category => "Kill";
     string IChatCommand.CommandKey => "!k on";
@@ -59,7 +57,7 @@ public class MessageSwitchOn : ISendChatCommand
     }
 }
 
-public class MessageSwitchOff : ISendChatCommand
+public class KillSwitchOff : ISendChatCommand
 {
     string IChatCommand.Category => "Kill";
     string IChatCommand.CommandKey => "!k off";

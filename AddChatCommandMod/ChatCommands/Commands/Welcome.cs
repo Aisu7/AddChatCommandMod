@@ -1,5 +1,3 @@
-using HarmonyLib;
-
 namespace AddChatCommandMod;
 
 public static class WelcomeStore

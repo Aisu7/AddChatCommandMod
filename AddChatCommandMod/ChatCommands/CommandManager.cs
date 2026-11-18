@@ -76,7 +76,7 @@ public static class SendChatCommandManager
 
     public static Dictionary<string,ISendChatCommand> Commands = new();
 
-    public static bool SendChat(string chatMessage)
+    public static bool SendChat(string chatMessage, ChatController __instance)
     {
         string[] tokens = chatMessage.Split(" ");
         for (int tokenCount = tokens.Length; tokenCount >= 1; tokenCount--)
@@ -89,7 +89,7 @@ public static class SendChatCommandManager
             {
                 string argumentText = (commandKey.Length == chatMessage.Length)? chatMessage : chatMessage.Substring(commandKey.Length + 1);
                 Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"\"{chatMessage}\" は、コマンド、 \"{argumentText}\" としてコマンド処理されました。");
-                return command.ExecuteSendChat(argumentText);
+                return command.ExecuteSendChat(argumentText,__instance);
             }
         }
         Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"\"{chatMessage}\" は、非コマンドとして処理されました。");
