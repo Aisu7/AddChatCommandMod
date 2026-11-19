@@ -6,7 +6,7 @@ public static class MessageStore
     public static string Text = "";
 }
 
-public class MessageSend : IAddChatCommand, ISendChatCommand
+public class MessageSend : IAddChatCommand
 {
     // Category, Description, DisplayNameはガイド側で翻訳するという流れかな。
     string IChatCommand.Category => "Message";
@@ -30,30 +30,14 @@ public class MessageSend : IAddChatCommand, ISendChatCommand
             return;
         }
 
-        VanillaRpc.SendPrivateChat(sourcePlayer,MessageStore.Text);
-
-    }
-
-    bool ISendChatCommand.ExecuteSendChat(string argumentText,ChatController __instance)
-    {
-        if (!MessageStore.IsEnabled)
+        if (sourcePlayer == AmongUsClient.Instance.AmHost && !sourcePlayer.Data.IsDead)
         {
-            Logger.AddChatCommandModLog(Logger.Log.LogMessage,"IsEnable == falseです");
-            VanillaRpc.SendLocalChat("そのコマンドは無効化されています");
-            __instance.freeChatField.Clear();
-            return true;
+           VanillaRpc.SendAllClientsChat(MessageStore.Text); 
         }
-        
-        if (MessageStore.Text == "")
+        else
         {
-            Logger.AddChatCommandModLog(Logger.Log.LogMessage,"Text == \"\" です");
-            VanillaRpc.SendLocalChat("登録されたメッセージがありません。");
-            __instance.freeChatField.Clear();
-            return false;
+            VanillaRpc.SendPrivateChat(sourcePlayer,MessageStore.Text);
         }
-        VanillaRpc.SendLocalChat(MessageStore.Text);
-        __instance.freeChatField.Clear();
-        return true;
     }
 }
 
