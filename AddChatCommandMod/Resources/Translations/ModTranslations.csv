@@ -1,9 +1,14 @@
 # ここでは'#'を文頭に使用すると、コメントアウト可能
 # KEY,Japanese,English
-ADDCHATCOMMANDMOD,AddChatCommanderMod,AddChatCommanderMod
-WELCOMETOACM,AddChatCommanderModへようこそ！,Welcome to AddChatCommanderMod!
+ADDCHATCOMMANDMOD,AddChatCommandMod,AddChatCommandMod
+WELCOMETOACM,AddChatCommandModへようこそ！,Welcome to AddChatCommandMod!
+
+
 
 # コマンド (Command)
+#
+WELCOMEMESSAGE0,<p style="font-size: 250%; font-weight: bold;"><span style="color: #B7502E;">Add</span> <span style="color: #F9D77D;">ChatCommand</span> <span style="color: #A6C27F;">Mod</span> へようこそ!!</p>,
+
 
 # CATEGORY.,,
 CATEGORY.MESSAGE,掲示メッセージ,
@@ -12,7 +17,7 @@ CATEGORY.ANNOUNCE,全体通知,
 CATEGORY.KILL,キル,Kill
 
 # DESCRIPTION.,,
-DESCRIPTION.MESSAGESEND,,
+DESCRIPTION.MESSAGESEND,◎使い方,
 DESCRIPTION.MESSAGESET,,
 DESCRIPTION.MESSAGESWITCHON,,
 DESCRIPTION.MESSAGESWITCHOFF,,
