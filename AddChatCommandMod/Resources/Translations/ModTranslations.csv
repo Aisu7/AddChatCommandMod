@@ -1,15 +1,43 @@
 # ここでは'#'を文頭に使用すると、コメントアウト可能
 # KEY,Japanese,English
-ADDCHATCOMMANDMOD,AddChatCommanderMod,AddChatCommanderMod
-WELCOMETOACM,AddChatCommanderModへようこそ！,Welcome to AddChatCommanderMod!
+ADDCHATCOMMANDMOD,AddChatCommandMod,AddChatCommandMod
+WELCOMETOACM,AddChatCommandModへようこそ！,Welcome to AddChatCommandMod!
+
+
 
 # コマンド (Command)
-COMMAND.NAME.MESSAGE,固定メッセージ,Message Command
-COMMAND.NAME.JOINMESSAGE,参加時メッセージ,JoinMessage
-COMMAND.NAME.ANOUNCE,アナウンス,Announce
-COMMAND.NAME.KILL,キルコマンド,Kill Command
-COMMAND.NAME.HELP,ヘルプコマンド,Help Command
-COMMAND.DISABLED,このコマンドは無効化されています。,This command is disabled.
+#
+WELCOMEMESSAGE0,<p style="font-size: 250%; font-weight: bold;"><span style="color: #B7502E;">Add</span> <span style="color: #F9D77D;">ChatCommand</span> <span style="color: #A6C27F;">Mod</span> へようこそ!!</p>,
+
+
+# CATEGORY.,,
+CATEGORY.MESSAGE,掲示メッセージ,
+CATEGORY.WELCOME,入室メッセージ,Welcome Message
+CATEGORY.ANNOUNCE,全体通知,
+CATEGORY.KILL,キル,Kill
+
+# DESCRIPTION.,,
+DESCRIPTION.MESSAGESEND,◎使い方,
+DESCRIPTION.MESSAGESET,,
+DESCRIPTION.MESSAGESWITCHON,,
+DESCRIPTION.MESSAGESWITCHOFF,,
+DESCRIPTION.WELCOMESEND,,
+DESCRIPTION.WELCOMESET,,
+DESCRIPTION.WELCOMESWITCHON,,
+DESCRIPTION.WELCOMESWITCHOFF,,
+DESCRIPTION.ANNOUNCESEND,,
+DESCRIPTION.ANNOUNCESWITCHON,,
+DESCRIPTION.ANNOUNCESWITCHOFF,,
+DESCRIPTION.KILLSEND,,
+DESCRIPTION.KILLSWITCHON,,
+DESCRIPTION.KILLSWITCHOFF,,
+
+#DISPLAYNAME.,,
+DISPLAYNAME.SEND,＃コマンド実行（送信）,
+DISPLAYNAME.SET,#送信内容の変更,
+DISPLAYNAME.SWITCHON,#コマンド有効化,
+DISPLAYNAME.SWITCHOFF,#コマンド無効化,
+
 
 #ガイド (Guide)
 GUIDE.TITLE,AddChatCommandMod ガイド,AddChatCommanderMod Guide
