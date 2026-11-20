@@ -6,7 +6,7 @@ WELCOMETOACM,AddChatCommandModへようこそ！,Welcome to AddChatCommandMod!
 
 
 # コマンド (Command)
-WELCOMEMESSAGE0,<p style="font-size: 250%;font-weight: bold;"><span style="color: #B7502E;">Add</span> <span style="color: #F9D77D;">ChatCommand</span> <span style="color: #A6C27F;">Mod</span> へようこそ!!</p>,
+WELCOMEMESSAGE0,<p style="font-size: 150%;font-weight: bold;"><span style="color: #B7502E;">Add</span> <span style="color: #F9D77D;">ChatCommand</span> <span style="color: #A6C27F;">Mod</span> へようこそ!!</p>,
 
 # インターフェース（Interface）
 INTERFACE.IADDCHATCOMMAND,全員）,

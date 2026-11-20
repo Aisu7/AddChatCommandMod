@@ -16,10 +16,7 @@ class AddChatPatch
         if (!AmongUsClient.Instance.AmHost)
             return;
         
-        if (chatText.StartsWith("!"))
-        {
-            AddChatCommandManager.AddChatCommand(chatText,sourcePlayer);
-        }
+        AddChatCommandManager.AddChatCommand(chatText,sourcePlayer);
     }
 }
 
@@ -43,10 +40,7 @@ class SendChatPatch
         Logger.Log.LogInfo($"{kari}:ほんやく");
 
 
-        if (chatText.StartsWith("!"))
-        {
-            return SendChatCommandManager.SendChat(chatText, __instance);
-        }
-        return true;
+
+        return SendChatCommandManager.SendChat(chatText, __instance);
     }
 }
