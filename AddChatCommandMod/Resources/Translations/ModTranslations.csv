@@ -6,25 +6,28 @@ WELCOMETOACM,AddChatCommandModへようこそ！,Welcome to AddChatCommandMod!
 
 
 # コマンド (Command)
-#
-WELCOMEMESSAGE0,<p style="font-size: 250%; font-weight: bold;"><span style="color: #B7502E;">Add</span> <span style="color: #F9D77D;">ChatCommand</span> <span style="color: #A6C27F;">Mod</span> へようこそ!!</p>,
+WELCOMEMESSAGE0,<p style="font-size: 250%;font-weight: bold;"><span style="color: #B7502E;">Add</span> <span style="color: #F9D77D;">ChatCommand</span> <span style="color: #A6C27F;">Mod</span> へようこそ!!</p>,
 
+# インターフェース（Interface）
+INTERFACE.IADDCHATCOMMAND,全員）,
+INTERFACE.ISENDCHATCOMMAND,ホスト専用,
 
-# CATEGORY.,,
+# カテゴリー（Category）
 CATEGORY.MESSAGE,掲示メッセージ,
 CATEGORY.WELCOME,入室メッセージ,Welcome Message
 CATEGORY.ANNOUNCE,全体通知,
 CATEGORY.KILL,キル,Kill
 
-# DESCRIPTION.,,
-DESCRIPTION.MESSAGESEND,◎使い方,
-DESCRIPTION.MESSAGESET,,
-DESCRIPTION.MESSAGESWITCHON,,
-DESCRIPTION.MESSAGESWITCHOFF,,
-DESCRIPTION.WELCOMESEND,,
-DESCRIPTION.WELCOMESET,,
-DESCRIPTION.WELCOMESWITCHON,,
-DESCRIPTION.WELCOMESWITCHOFF,,
+# 
+#使い方のテンプレートとして、◎使い方
+DESCRIPTION.MESSAGESEND,掲示メッセージをチャットに送信します。,
+DESCRIPTION.MESSAGESET,掲示メッセージを設定することができます。,
+DESCRIPTION.MESSAGESWITCHON,掲示メッセージ機能を有効化します。初期値は有効です。,
+DESCRIPTION.MESSAGESWITCHOFF,掲示メッセージ機能を無効化します。初期値は有効です。,
+DESCRIPTION.WELCOMESEND,入室メッセージを表示します。,
+DESCRIPTION.WELCOMESET,入室メッセージを設定します。!w s Clearでメッセージを空に設定できます。,
+DESCRIPTION.WELCOMESWITCHON,入室メッセージ機能を有効化します。初期値は有効です。,
+DESCRIPTION.WELCOMESWITCHOFF,入室メッセージを無効化します。初期値は有効です。,
 DESCRIPTION.ANNOUNCESEND,,
 DESCRIPTION.ANNOUNCESWITCHON,,
 DESCRIPTION.ANNOUNCESWITCHOFF,,
@@ -41,4 +44,5 @@ DISPLAYNAME.SWITCHOFF,#コマンド無効化,
 
 #ガイド (Guide)
 GUIDE.TITLE,AddChatCommandMod ガイド,AddChatCommanderMod Guide
-
+GUIDE.TAB1,,
+GUIDE.TAB2,,
