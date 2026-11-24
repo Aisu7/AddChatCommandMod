@@ -8,7 +8,7 @@ public static class KillStore
 public class KillSend : ISendChatCommand
 {
     string IChatCommand.Category => "Kill";
-    string IChatCommand.CommandKey => "!k";
+    string IChatCommand.CommandKey => "!kill";
     string IChatCommand.Description => "〇使い方\n!k {player名}  ・・・指定したプレイヤーをキルします。";
     string IChatCommand.DisplayName => "#キル";
 
@@ -52,7 +52,7 @@ public class KillSend : ISendChatCommand
 public class KillSwitchOn : ISendChatCommand
 {
     string IChatCommand.Category => "Kill";
-    string IChatCommand.CommandKey => "!k on";
+    string IChatCommand.CommandKey => "!kill on";
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#有効化";
 
@@ -68,7 +68,7 @@ public class KillSwitchOn : ISendChatCommand
 public class KillSwitchOff : ISendChatCommand
 {
     string IChatCommand.Category => "Kill";
-    string IChatCommand.CommandKey => "!k off";
+    string IChatCommand.CommandKey => "!kill off";
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#無効化";
 
