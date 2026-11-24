@@ -12,7 +12,7 @@ public static class Registry
 
         var commandTypes = assembly.GetTypes().Where(type => type.IsClass && !type.IsAbstract 
             && !type.ContainsGenericParameters && (typeof(IAddChatCommand).IsAssignableFrom(type) 
-            || typeof(ISendChatCommand).IsAssignableFrom(type)) );//|| typeof(IMessageTag).IsAssignableFrom(type)));
+            || typeof(ISendChatCommand).IsAssignableFrom(type)) );
 
         foreach (Type type in commandTypes)
         {
@@ -28,26 +28,15 @@ public static class Registry
             }
             if (instance is ISendChatCommand sendChatCommand)
             {
-                //if (instance is IMessageTag messageTag)
-                    //AddChatCommandManager.Tags.Add(messageTag.TagKey,messageTag);
-                //else
                 SendChatCommandManager.Commands.Add(sendChatCommand.CommandKey,sendChatCommand);
             }
-
-
-
-        
         }
-
-        
-
     }
 }
 
 public static class AddChatCommandManager
 {
     public static Dictionary<string,IAddChatCommand> Commands = new();
-    //pulic static Dictionary<string,IMessageTag> Tahs = new();
 
     public static void AddChatCommand(string chatMessage,PlayerControl player)
     {
