@@ -10,7 +10,7 @@ public class MessageSend : IAddChatCommand
 {
     // Category, Description, DisplayNameはガイド側で翻訳するという流れかな。
     string IChatCommand.Category => "Message";
-    string IChatCommand.CommandKey => "!m";
+    string IChatCommand.CommandKey => "!message";
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#送信";
 
@@ -46,7 +46,7 @@ public class MessageSend : IAddChatCommand
 public class MessageSet : ISendChatCommand
 {
     string IChatCommand.Category => "Message";
-    string IChatCommand.CommandKey => "!m s";
+    string IChatCommand.CommandKey => "!message set";
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#設定";
 
@@ -78,7 +78,7 @@ public class MessageSet : ISendChatCommand
 public class MessageSwitchOn : ISendChatCommand
 {
     string IChatCommand.Category => "Message";
-    string IChatCommand.CommandKey => "!m on";
+    string IChatCommand.CommandKey => "!message on";
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#有効化";
 
@@ -94,7 +94,7 @@ public class MessageSwitchOn : ISendChatCommand
 public class MessageSwitchOff : ISendChatCommand
 {
     string IChatCommand.Category => "Message";
-    string IChatCommand.CommandKey => "!m off";
+    string IChatCommand.CommandKey => "!message off";
     string IChatCommand.Description => "";
     string IChatCommand.DisplayName => "#無効化";
 
