@@ -1,3 +1,5 @@
+using InnerNet;
+
 namespace AddChatCommandMod;
 
 public static class KillStore
@@ -24,6 +26,14 @@ public class KillSend : ISendChatCommand
             return false;
         }
 
+        if (AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Started)
+        {
+            __instance.freeChatField.Clear();
+             VanillaRpc.SendLocalChat("このコマンドは試合中のみ使用可能です。");
+            __instance.freeChatField.Clear();
+            return false;
+        }
+        
         for (int i = 0; i < PlayerControl.AllPlayerControls.Count; i++)
         {
             PlayerControl player = PlayerControl.AllPlayerControls[i];

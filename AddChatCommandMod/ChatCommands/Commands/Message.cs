@@ -66,8 +66,10 @@ public class MessageSet : ISendChatCommand
             __instance.freeChatField.Clear();
             return false;
         }
-
-        MessageStore.Text = argumentText;
+        if (argumentText == "Clear")
+            MessageStore.Text = argumentText;
+        else
+           MessageStore.Text = argumentText; 
         VanillaRpc.SendAllClientsChat(MessageStore.Text);
         __instance.freeChatField.Clear();
         return false;

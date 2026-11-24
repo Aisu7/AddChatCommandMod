@@ -81,8 +81,10 @@ public class WelcomeSet : ISendChatCommand
             __instance.freeChatField.Clear();
             return false;
         }
-
-        WelcomeStore.Text = argumentText;
+        if (argumentText == "Clear")
+            WelcomeStore.Text = argumentText;
+        else
+           WelcomeStore.Text = argumentText; 
         VanillaRpc.SendAllClientsChat(WelcomeStore.Text);
         __instance.freeChatField.Clear();
         return false;
