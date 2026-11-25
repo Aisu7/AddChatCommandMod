@@ -10,7 +10,7 @@ class AddChatPatch
 {
     static void Prefix(ChatController __instance, PlayerControl sourcePlayer, string chatText)
     {
-        if (AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Joined)
+        if (AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Joined || AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Started)
             return;
         
         if (!AmongUsClient.Instance.AmHost)
