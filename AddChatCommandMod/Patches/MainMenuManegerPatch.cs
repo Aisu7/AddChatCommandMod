@@ -3,8 +3,8 @@ using System.Collections;
 
 namespace AddChatCommandMod;
 
-[HarmonyPatch(typeof(MainMenuManager),nameof(MainMenuManager.RunStartUp))]
-public class RunStartUpPatch
+[HarmonyPatch(typeof(MainMenuManager),nameof(MainMenuManager.Start))]
+public class StartPatch
 {
     public static void Postfix()
     {       
