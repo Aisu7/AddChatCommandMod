@@ -28,7 +28,6 @@ public class KillSend : ISendChatCommand
 
         if (AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Started)
         {
-            __instance.freeChatField.Clear();
              VanillaRpc.SendLocalChat("このコマンドは試合中のみ使用可能です。");
             __instance.freeChatField.Clear();
             return false;
