@@ -1,6 +1,6 @@
 namespace AddChatCommandMod;
 
-public interface ISendChatCommand : IChatCommand
+interface ISendChatCommand : IChatCommand
 {
     bool ExecuteSendChat(string text, ChatController __instance);
 }
