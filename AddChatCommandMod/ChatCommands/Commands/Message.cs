@@ -2,13 +2,12 @@ namespace AddChatCommandMod;
 
 public static class MessageStore
 {
-    public static bool IsEnabled = true;
-    public static string Text = "";
+    static bool IsEnabled = true;
+    static string Text = "";
 }
 
-public class MessageSend : IAddChatCommand
+class MessageSend : IAddChatCommand
 {
-    // Category, Description, DisplayNameはガイド側で翻訳するという流れかな。
     string IChatCommand.Category => "Message";
     string IChatCommand.CommandKey => "!message";
     string IChatCommand.Description => "";
@@ -43,7 +42,7 @@ public class MessageSend : IAddChatCommand
 
 
 
-public class MessageSet : ISendChatCommand
+class MessageSet : ISendChatCommand
 {
     string IChatCommand.Category => "Message";
     string IChatCommand.CommandKey => "!message set";
@@ -77,7 +76,7 @@ public class MessageSet : ISendChatCommand
 }
 
 
-public class MessageSwitchOn : ISendChatCommand
+class MessageSwitchOn : ISendChatCommand
 {
     string IChatCommand.Category => "Message";
     string IChatCommand.CommandKey => "!message on";
@@ -93,7 +92,7 @@ public class MessageSwitchOn : ISendChatCommand
     }
 }
 
-public class MessageSwitchOff : ISendChatCommand
+class MessageSwitchOff : ISendChatCommand
 {
     string IChatCommand.Category => "Message";
     string IChatCommand.CommandKey => "!message off";
