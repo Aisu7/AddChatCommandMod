@@ -27,51 +27,44 @@ public class Main : BasePlugin
         Logger.Log.LogInfo($"[Main] Harmony適用済みメソッド数: {patchedCount}");
         foreach (var m in harmony.GetPatchedMethods())
         {
-            Logger.Log.LogInfo($"{dynamicName},パッチ済み: {m.DeclaringType?.Name}.{m.Name}");
+            Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"{dynamicName},パッチ済み: {m.DeclaringType?.Name}.{m.Name}");
         }
 
-        Logger.Log.LogInfo("AddChatCommanderMod Loaded!");
+        Logger.AddChatCommandModLog(Logger.Log.LogInfo,"AddChatCommanderMod Loaded!");
 
     }
 }
 
-static class ResourceManager
+class ResourceManager
 {
     static readonly Dictionary<string, byte[]> SavedFiles = new();
     public static void SetUpResources()
     {   
-        // 全ファイル名文nameへの代入が完了するまで
+        // 全ファイル名分、nameへの代入を繰り返す
         foreach (string? name in typeof(Main).Assembly.GetManifestResourceNames())
         {
             Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"Resource: {name}");
-            if (name.Contains(".Resources."))
+            if (name.StartWith("AddChatCommandMod.AddChatCommandMod.Resources."))
             {
                 using (Stream? stream = typeof(Main).Assembly.GetManifestResourceStream(name))
                 {
                     if (stream == null)
                     {
-                        
+                        Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"Resource: {name}がnull");
                         continue;
                     }
-                    string[] fileNameParts = Split[".Resorces."];
-                    string fileName = fileNameParts[
+                    string[] nameParts = Split["."];
+                    string resourceName = nameParts[nameParts.Length - 1] + "." + nameParts[nameParts.Length];
                     using (var memoryStream = new MemoryStream())
                     {
                         stream.CopyTo(memoryStream);
-                        SavedFiles.Add(fileName, memoryStream.ToArray());
+                        SavedFiles.Add(resourceName, memoryStream.ToArray());
                     }   
                 }
             }
         }
-        foreach (string? name in NeedFileNames)
-        {
-            if (SavedFiles.TryGetValue(name,out byte[]? fileData))
-                Logger.Log.LogInfo($"必要なフォルダ、{name}が取得できました。");
-            else
-                Logger.Log.LogInfo($"必要なフォルダ、{name}が取得できませんでした。");  
-        }
-            
     }
+                                                    
 
     public static byte[]? GetBytes(string name)
     {
@@ -79,7 +72,7 @@ static class ResourceManager
             return fileData;
         else
         {
-            Logger.Log.LogInfo($"必要なフォルダ、{name}が取得できませんでした。");
+            Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"ファイル名: {name}はSavedFilesに保存されておらず、取り出せませんでした。");
             return null;
         }
     }
@@ -89,9 +82,9 @@ static class ResourceManager
 
 
 [HarmonyPatch(typeof(ModManager),nameof(ModManager.LateUpdate))]
-public class ShowModStamp
+class ShowModStamp
 {
-    public static void Postfix(ModManager __instance)
+    static void Postfix(ModManager __instance)
     {
         __instance.ShowModStamp();
     }
