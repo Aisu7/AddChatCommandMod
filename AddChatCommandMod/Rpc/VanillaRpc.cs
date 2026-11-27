@@ -8,7 +8,7 @@ using Hazel;
 
 namespace AddChatCommandMod;
 
-public static class VanillaRpc
+static class VanillaRpc
 {
     public static void SendLocalChat(string message)
     {
