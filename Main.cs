@@ -76,7 +76,7 @@ public static class ResourceManager
                 Logger.Log.LogInfo($"必要なフォルダ、{name}が取得できました。");
             else
                 Logger.Log.LogInfo($"必要なフォルダ、{name}が取得できませんでした。");  
-        }*/
+        }
             
     }
 
