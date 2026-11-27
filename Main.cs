@@ -35,8 +35,7 @@ public class Main : BasePlugin
     }
 }
 
-
-public static class ResourceManager
+static class ResourceManager
 {
     static readonly Dictionary<string, byte[]> SavedFiles = new();
     public static void SetUpResources()
@@ -45,16 +44,17 @@ public static class ResourceManager
         foreach (string? name in typeof(Main).Assembly.GetManifestResourceNames())
         {
             Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"Resource: {name}");
-            if (name.Contains(".Resorces"))
+            if (name.Contains(".Resources."))
             {
                 using (Stream? stream = typeof(Main).Assembly.GetManifestResourceStream(name))
                 {
                     if (stream == null)
                     {
+                        
                         continue;
                     }
-                    int index = name.IndexOf(".Resorces");
-                    string fileName = index.Substring(index,name.Length);
+                    string[] fileNameParts = Split[".Resorces."];
+                    string fileName = fileNameParts[
                     using (var memoryStream = new MemoryStream())
                     {
                         stream.CopyTo(memoryStream);
