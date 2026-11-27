@@ -1,9 +1,9 @@
 namespace AddChatCommandMod;
 
-public static class MessageStore
+static class MessageStore
 {
-    static bool IsEnabled = true;
-    static string Text = "";
+    public static bool IsEnabled = true;
+    public static string Text = "";
 }
 
 class MessageSend : IAddChatCommand
