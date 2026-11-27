@@ -1,12 +1,12 @@
 namespace AddChatCommandMod;
 
-public static class OnMeetingStartStore
+static class OnMeetingStartStore
 {
-    public static bool IsEnabled = true;
-    public static string Text = "";
+     static bool IsEnabled = true;
+     static string Text = "";
 }
 
-public class OnMeetingStartSend : IAddChatCommand, ISendChatCommand
+class OnMeetingStartSend : IAddChatCommand, ISendChatCommand
 {
     // Category, Description, DisplayNameはガイド側で翻訳するという流れかな。
     string IChatCommand.Category => "OnMeetingStart";
@@ -58,7 +58,7 @@ public class OnMeetingStartSend : IAddChatCommand, ISendChatCommand
 
 
 
-public class OnMeetingStartSet : ISendChatCommand
+class OnMeetingStartSet : ISendChatCommand
 {
     string IChatCommand.Category => "OnMeetingStart";
     string IChatCommand.CommandKey => "!onmeetingstart set";
@@ -92,7 +92,7 @@ public class OnMeetingStartSet : ISendChatCommand
 }
 
 
-public class OnMeetingStartSwitchOn : ISendChatCommand
+class OnMeetingStartSwitchOn : ISendChatCommand
 {
     string IChatCommand.Category => "OnMeetingStart";
     string IChatCommand.CommandKey => "!onmeetingstart on";
@@ -108,7 +108,7 @@ public class OnMeetingStartSwitchOn : ISendChatCommand
     }
 }
 
-public class OnMeetingStartSwitchOff : ISendChatCommand
+class OnMeetingStartSwitchOff : ISendChatCommand
 {
     string IChatCommand.Category => "OnMeetingStart";
     string IChatCommand.CommandKey => "!onmeetingstart off";
