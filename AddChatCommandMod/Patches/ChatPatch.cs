@@ -37,7 +37,7 @@ class SendChatPatch
         
         //翻訳試す仮の
         string kari = ModTranslations.GetString("COMMAND.NAME.MESSAGE");
-        Logger.Log.LogInfo($"{kari}:ほんやく");
+        Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"{kari}:ほんやく");
 
 
 
