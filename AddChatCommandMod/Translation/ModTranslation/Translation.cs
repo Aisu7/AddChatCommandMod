@@ -4,7 +4,7 @@ using Microsoft.VisualBasic.FileIO;
 
 namespace AddChatCommandMod;
 
-public static class ModTranslations
+static class ModTranslations
 {
     static readonly Dictionary<string, string> Translations = new();
     public static void SetCurrentLanguage(LanguageSettingsData __instance)
