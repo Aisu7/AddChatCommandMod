@@ -1,12 +1,12 @@
 namespace AddChatCommandMod;
 
-public static class WelcomeStore
+static class WelcomeStore
 {
-    public static bool IsEnabled = true;
-    public static string Text = "";
+     static bool IsEnabled = true;
+     static string Text = "";
 }
 
-public class WelcomeSend : IAddChatCommand, ISendChatCommand
+class WelcomeSend : IAddChatCommand, ISendChatCommand
 {
     // Category, Description, DisplayNameはガイド側で翻訳するという流れかな。
     string IChatCommand.Category => "Welcome";
@@ -58,7 +58,7 @@ public class WelcomeSend : IAddChatCommand, ISendChatCommand
 
 
 
-public class WelcomeSet : ISendChatCommand
+class WelcomeSet : ISendChatCommand
 {
     string IChatCommand.Category => "Welcome";
     string IChatCommand.CommandKey => "!welcome set";
@@ -92,7 +92,7 @@ public class WelcomeSet : ISendChatCommand
 }
 
 
-public class WelcomeSwitchOn : ISendChatCommand
+class WelcomeSwitchOn : ISendChatCommand
 {
     string IChatCommand.Category => "Welcome";
     string IChatCommand.CommandKey => "!welcome on";
@@ -108,7 +108,7 @@ public class WelcomeSwitchOn : ISendChatCommand
     }
 }
 
-public class WelcomeSwitchOff : ISendChatCommand
+class WelcomeSwitchOff : ISendChatCommand
 {
     string IChatCommand.Category => "Welcome";
     string IChatCommand.CommandKey => "!welcome off";
