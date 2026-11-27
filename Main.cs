@@ -46,12 +46,12 @@ public static class ResourceManager
     };
 
     public static void SetUpResources()
-    {
+    {   
         // 全ファイル名文nameへの代入が完了するまで
         foreach (string? name in typeof(Main).Assembly.GetManifestResourceNames())
         {
             Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"Resource: {name}");
-            if (NeedFileNames.Contains(name))
+            if (name.Contains(".Resorces"))
             {
                 using (Stream? stream = typeof(Main).Assembly.GetManifestResourceStream(name))
                 {
@@ -60,11 +60,12 @@ public static class ResourceManager
                         Logger.Log.LogInfo($"必要なフォルダ、{name}が取得できませんでした。");
                         continue;
                     }
-
+                    int index = name.IndexOf(".Resorces");
+                    string fileName = index.Substring(index,name.Length);
                     using (var memoryStream = new MemoryStream())
                     {
                         stream.CopyTo(memoryStream);
-                        SavedFiles.Add(name, memoryStream.ToArray());
+                        SavedFiles.Add(fileName, memoryStream.ToArray());
                     }   
                 }
             }
@@ -75,7 +76,7 @@ public static class ResourceManager
                 Logger.Log.LogInfo($"必要なフォルダ、{name}が取得できました。");
             else
                 Logger.Log.LogInfo($"必要なフォルダ、{name}が取得できませんでした。");  
-        }
+        }*/
             
     }
 
