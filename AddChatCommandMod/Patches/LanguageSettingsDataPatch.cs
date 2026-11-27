@@ -14,9 +14,9 @@ public class HandleChangePatch
 
 
 [HarmonyPatch(typeof(LanguageSettingsData),nameof(LanguageSettingsData.OnLoadComplete))]
-public class LoadCompletePatch
+class LoadCompletePatch
 {
-    public static void Postfix(LanguageSettingsData __instance) 
+    static void Postfix(LanguageSettingsData __instance) 
     {        
         ModTranslations.SetCurrentLanguage(__instance);
     }
