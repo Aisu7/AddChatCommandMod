@@ -1,6 +1,6 @@
 namespace AddChatCommandMod;
 
-public interface IChatCommand
+interface IChatCommand
 {
     string Category{get;}
     string CommandKey {get;}
