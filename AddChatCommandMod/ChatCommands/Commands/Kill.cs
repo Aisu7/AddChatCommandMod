@@ -2,12 +2,12 @@ using InnerNet;
 
 namespace AddChatCommandMod;
 
-public static class KillStore
+static class KillStore
 {
     public static bool IsEnabled = true;
 }
 
-public class KillSend : ISendChatCommand
+class KillSend : ISendChatCommand
 {
     string IChatCommand.Category => "Kill";
     string IChatCommand.CommandKey => "!kill";
@@ -58,7 +58,7 @@ public class KillSend : ISendChatCommand
 }
 
 
-public class KillSwitchOn : ISendChatCommand
+class KillSwitchOn : ISendChatCommand
 {
     string IChatCommand.Category => "Kill";
     string IChatCommand.CommandKey => "!kill on";
@@ -74,7 +74,7 @@ public class KillSwitchOn : ISendChatCommand
     }
 }
 
-public class KillSwitchOff : ISendChatCommand
+class KillSwitchOff : ISendChatCommand
 {
     string IChatCommand.Category => "Kill";
     string IChatCommand.CommandKey => "!kill off";
