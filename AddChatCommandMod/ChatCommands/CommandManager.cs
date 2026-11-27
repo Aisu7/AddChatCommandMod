@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace AddChatCommandMod;
 
-public static class Registry
+static class Registry
 {
     public static void RegisterCommands()
     {
@@ -34,9 +34,9 @@ public static class Registry
     }
 }
 
-public static class AddChatCommandManager
+static class AddChatCommandManager
 {
-    public static Dictionary<string,IAddChatCommand> Commands = new();
+    public static readonly Dictionary<string,IAddChatCommand> Commands = new();
 
     public static void AddChatCommand(string chatMessage,PlayerControl player)
     {
@@ -66,9 +66,8 @@ public static class AddChatCommandManager
 
 }
 
-public static class SendChatCommandManager
+static class SendChatCommandManager
 {
-
     public static Dictionary<string,ISendChatCommand> Commands = new();
 
     public static bool SendChat(string chatMessage, ChatController __instance)
