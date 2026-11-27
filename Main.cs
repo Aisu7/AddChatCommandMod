@@ -39,12 +39,6 @@ public class Main : BasePlugin
 public static class ResourceManager
 {
     static readonly Dictionary<string, byte[]> SavedFiles = new();
-    static readonly List<string> NeedFileNames = new()
-    {
-        "ModTranslations.csv",
-        "AddChatCommandMod-Logo.png",
-    };
-
     public static void SetUpResources()
     {   
         // 全ファイル名文nameへの代入が完了するまで
@@ -57,7 +51,6 @@ public static class ResourceManager
                 {
                     if (stream == null)
                     {
-                        Logger.Log.LogInfo($"必要なフォルダ、{name}が取得できませんでした。");
                         continue;
                     }
                     int index = name.IndexOf(".Resorces");
