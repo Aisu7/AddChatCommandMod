@@ -2,8 +2,8 @@ namespace AddChatCommandMod;
 
 static class OnMeetingStartStore
 {
-     static bool IsEnabled = true;
-     static string Text = "";
+     public static bool IsEnabled = true;
+     public static string Text = "";
 }
 
 class OnMeetingStartSend : IAddChatCommand, ISendChatCommand
