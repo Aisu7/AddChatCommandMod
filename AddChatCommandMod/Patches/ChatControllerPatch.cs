@@ -1,6 +1,7 @@
 using HarmonyLib;
 using InnerNet;
 using JetBrains.Annotations;
+using UnityEngine.UI;
 
 namespace AddChatCommandMod;
 
@@ -45,7 +46,9 @@ class SendChatPatch
 }
 
 
-[HarmonyPatch(typeof(ChatController),nameof(ChatController.FieldSetter))]
+
+
+[HarmonyPatch(typeof(ChatController),nameof(ChatController.Toggle))]
 static class FieldSetterPatch
 {
     private static string? _selectedPlayerName;
@@ -54,13 +57,11 @@ static class FieldSetterPatch
     {
         if (_selectedPlayerName != null)
         {
-            if (string.IsNullOrWhiteSpace(__instance.freeChatField.textArea.text))
-            {
-                __instance.freeChatField.textArea.text += _selectedPlayerName;
-            }
+            if(string.IsNullOrWhiteSpace(__instance.freeChatField.textArea.text) || __instance.freeChatField.textArea.text.EndsWith(" "))
+                __instance.freeChatField.textArea.SetText(_selectedPlayerName);
             else
             {
-                __instance.freeChatField.textArea.text += " " + _selectedPlayerName;
+                __instance.freeChatField.textArea.SetText(__instance.freeChatField.textArea.text + " " + _selectedPlayerName);
             }
         }
 
@@ -76,7 +77,7 @@ static class FieldSetterPatch
         }
         else
         {
-            Logger.AddChatCommandModLog(Logger.Log.LogError,"{_selectedPlayerName　が null です。}");
+            Logger.AddChatCommandModLog(Logger.Log.LogError,"_selectedPlayerName　が null です。}");
         }
     }
 }
