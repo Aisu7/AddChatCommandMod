@@ -35,6 +35,8 @@ class SendChatPatch
             return true;
 
         string chatText = __instance.freeChatField.textArea.text;
+
+        
         
         //翻訳試す仮の
         string kari = ModTranslations.GetString("COMMAND.NAME.MESSAGE");
@@ -44,30 +46,13 @@ class SendChatPatch
 
         return SendChatCommandManager.SendChat(chatText, __instance);
     }
-}
 
-[HarmonyPatch(typeof(ChatController),nameof(ChatController.FieldSetter))]
-class FieldSetterPatch
-{
-    public static bool Postfix(ChatController __instance)
+    public static string SetSelectedPlayerName(string PlayerName)
     {
+        if (playerName != null)
+            return "";
+        else
+            return PlayerName;
         
-        if (AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Joined && AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Started)
-            return true;
-        
-        if (!AmongUsClient.Instance.AmHost)
-            return true;
-
-        
-
-        
-        
-        //翻訳試す仮の
-        string kari = ModTranslations.GetString("COMMAND.NAME.MESSAGE");
-        Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"{kari}:ほんやく");
-
-
-
-        return SendChatCommandManager.SendChat(chatText, __instance);
     }
 }
