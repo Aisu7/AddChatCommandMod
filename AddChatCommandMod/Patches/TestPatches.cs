@@ -1,4 +1,4 @@
-using HarmonyLib;
+/*using HarmonyLib;
 using BepInEx;
 using System.IO;
 using Il2CppSystem.Configuration; 
@@ -17,4 +17,4 @@ public class TestClass
             Logger.AddChatCommandModLog(Logger.Log.LogInfo,"PlayerVoteArea Postfix　ifの処理完了起動");
         }
     }
-}
+}*/

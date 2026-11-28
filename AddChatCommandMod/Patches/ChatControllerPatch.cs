@@ -49,7 +49,7 @@ class SendChatPatch
 
 
 [HarmonyPatch(typeof(ChatController),nameof(ChatController.Toggle))]
-static class FieldSetterPatch
+static class TogglePatch
 {
     private static string? _selectedPlayerName;
     
