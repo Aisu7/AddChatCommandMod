@@ -1,5 +1,6 @@
 using HarmonyLib;
 using InnerNet;
+using JetBrains.Annotations;
 
 namespace AddChatCommandMod;
 
@@ -24,7 +25,7 @@ class AddChatPatch
 [HarmonyPatch(typeof(ChatController),nameof(ChatController.SendChat))]
 class SendChatPatch
 {
-    static bool Prefix(ChatController __instance)
+    public static bool Prefix(ChatController __instance)
     {
         
         if (AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Joined && AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Started)
@@ -34,6 +35,32 @@ class SendChatPatch
             return true;
 
         string chatText = __instance.freeChatField.textArea.text;
+        
+        //翻訳試す仮の
+        string kari = ModTranslations.GetString("COMMAND.NAME.MESSAGE");
+        Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"{kari}:ほんやく");
+
+
+
+        return SendChatCommandManager.SendChat(chatText, __instance);
+    }
+}
+
+[HarmonyPatch(typeof(ChatController),nameof(ChatController.FieldSetter))]
+class FieldSetterPatch
+{
+    public static bool Postfix(ChatController __instance)
+    {
+        
+        if (AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Joined && AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Started)
+            return true;
+        
+        if (!AmongUsClient.Instance.AmHost)
+            return true;
+
+        
+
+        
         
         //翻訳試す仮の
         string kari = ModTranslations.GetString("COMMAND.NAME.MESSAGE");

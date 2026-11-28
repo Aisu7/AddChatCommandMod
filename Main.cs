@@ -44,7 +44,7 @@ class ResourceManager
         foreach (string? name in typeof(Main).Assembly.GetManifestResourceNames())
         {
             Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"Resource: {name}");
-            if (name.StartWith("AddChatCommandMod.AddChatCommandMod.Resources."))
+            if (name.StartsWith("AddChatCommandMod.AddChatCommandMod.Resources."))
             {
                 using (Stream? stream = typeof(Main).Assembly.GetManifestResourceStream(name))
                 {
@@ -53,7 +53,7 @@ class ResourceManager
                         Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"Resource: {name}がnull");
                         continue;
                     }
-                    string[] nameParts = Split["."];
+                    string[] nameParts = name.Split(".");
                     string resourceName = nameParts[nameParts.Length - 1] + "." + nameParts[nameParts.Length];
                     using (var memoryStream = new MemoryStream())
                     {
