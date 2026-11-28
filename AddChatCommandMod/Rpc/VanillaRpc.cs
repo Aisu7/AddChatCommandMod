@@ -88,6 +88,13 @@ static class VanillaRpc
     public static void MurderPlayer(PlayerControl targetPlayer)
     {
         var player = SelectChatSender();
-        player.RpcMurderPlayer(targetPlayer,true);
+        if (targetPlayer.Data.IsDead)
+        {
+            
+        }
+        else
+        {
+            player.RpcMurderPlayer(targetPlayer,true);  
+        }
     }
 }

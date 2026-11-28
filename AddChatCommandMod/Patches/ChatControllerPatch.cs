@@ -36,23 +36,47 @@ class SendChatPatch
 
         string chatText = __instance.freeChatField.textArea.text;
 
-        
-        
         //翻訳試す仮の
         string kari = ModTranslations.GetString("COMMAND.NAME.MESSAGE");
         Logger.AddChatCommandModLog(Logger.Log.LogInfo,$"{kari}:ほんやく");
 
-
-
         return SendChatCommandManager.SendChat(chatText, __instance);
     }
+}
 
-    public static string SetSelectedPlayerName(string PlayerName)
+
+[HarmonyPatch(typeof(ChatController),nameof(ChatController.FieldSetter))]
+static class FieldSetterPatch
+{
+    private static string? _selectedPlayerName;
+    
+    static void Postfix(ChatController __instance)
     {
+        if (_selectedPlayerName != null)
+        {
+            if (string.IsNullOrWhiteSpace(__instance.freeChatField.textArea.text))
+            {
+                __instance.freeChatField.textArea.text += _selectedPlayerName;
+            }
+            else
+            {
+                __instance.freeChatField.textArea.text += " " + _selectedPlayerName;
+            }
+        }
+
+        _selectedPlayerName = null;
+    }
+
+    public static void SetSelectedPlayerName(string? playerName)
+    {
+        Logger.AddChatCommandModLog(Logger.Log.LogInfo, "FieldSetter Postfix called");
         if (playerName != null)
-            return "";
+        {
+            _selectedPlayerName = playerName;
+        }
         else
-            return PlayerName;
-        
+        {
+            Logger.AddChatCommandModLog(Logger.Log.LogError,"{_selectedPlayerName　が null です。}");
+        }
     }
 }
